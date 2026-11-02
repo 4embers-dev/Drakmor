@@ -4,11 +4,72 @@
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#342517,#100e0c 65%);color:var(--text);font:16px Georgia,serif}header{border-bottom:1px solid var(--line);padding:19px max(18px,calc((100vw - 1200px)/2));background:#100e0cee;display:flex;align-items:center;justify-content:space-between;gap:14px}h1{font-size:38px;letter-spacing:5px;margin:0;color:var(--gold)}.sub{color:var(--muted);font-size:12px;letter-spacing:2px}main{max-width:1200px;margin:24px auto;padding:0 16px}.banner{padding:27px;background:linear-gradient(120deg,#49301c,#1c1712);border:1px solid var(--line);border-radius:10px;margin-bottom:18px}.banner h2{margin:0 0 8px;color:#ffdf9b;font-size:27px}.banner p{margin:0;color:#d5c2a3}.layout{display:grid;grid-template-columns:285px 1fr;gap:18px}.panel{background:linear-gradient(150deg,#2b2118,var(--panel));border:1px solid var(--line);padding:19px;border-radius:9px;margin-bottom:16px}h3{color:var(--gold);margin:0 0 14px;font-size:21px}.row{display:flex;justify-content:space-between;gap:10px;margin:12px 0}.muted{color:var(--muted)}.bar{height:10px;border:1px solid #6d5133;border-radius:10px;background:#110d09;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,#9e3527,#e26b4a)}#xpbar{background:linear-gradient(90deg,#97712e,#e5bf58)}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.btn{cursor:pointer;background:#38291a;color:#f6d996;border:1px solid #8d6633;border-radius:6px;padding:12px;font:700 15px Georgia,serif}.btn:hover,.btn.active{background:#62401e}.btn:disabled{opacity:.45;cursor:not-allowed}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:#1a140f;border:1px solid #60472b;padding:15px;border-radius:7px}.card h4{color:#f0ce87;margin:0 0 8px;font-size:18px}.card p{color:var(--muted);margin:0 0 12px;line-height:1.5}.card button{width:100%}.log{max-height:190px;overflow:auto;background:#100c09;border:1px solid #4d3925;padding:12px;line-height:1.5}.log p{margin:0 0 9px}.chip{display:inline-block;border:1px solid #71532e;background:#322415;padding:8px 11px;margin:4px;border-radius:5px}.hidden{display:none}.notice{font-size:13px;color:#b9a58b}.world{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.place{min-height:100px;background:linear-gradient(145deg,#382719,#1b1510);border:1px solid #73532f;border-radius:7px;padding:16px;cursor:pointer;color:#f5dca8;text-align:center;font:17px Georgia}.place span{display:block;font-size:29px;margin-bottom:9px}.place.locked{opacity:.55}.footer{text-align:center;padding:20px;color:#8f806b}@media(max-width:760px){.layout{grid-template-columns:1fr}header{padding:15px}h1{font-size:29px}.grid{grid-template-columns:1fr}.world{grid-template-columns:repeat(2,1fr)}.banner{padding:18px}}
 
 .authbox{margin:0 0 18px;padding:17px;border:1px solid var(--line);background:#211a14;border-radius:9px}.authbox h3{margin:0 0 10px}.authrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.authrow input{min-width:180px;flex:1;background:#120f0b;border:1px solid #80603b;border-radius:5px;padding:12px;color:#f4e4cc;font:15px Georgia}.authstatus{color:#dfc28d;margin:10px 0 0;line-height:1.5}.authbox .btn{white-space:nowrap}
+
+/* Drakmor medieval city redesign */
+:root{color-scheme:light;--bg:#e4c993;--panel:#f6e6bc;--gold:#7e3d0d;--line:#ae7931;--text:#43230f;--muted:#79542d}
+body{background:radial-gradient(circle at 50% 5%,#fff2ca,#d9bb7c 70%);color:var(--text)}
+header{background:linear-gradient(100deg,#1c110d 0%,#401b16 25%,#691c19 52%,#29150e 100%);border-bottom:5px ridge #d5a54c;padding:18px max(18px,calc((100vw - 1320px)/2));box-shadow:0 5px 15px #41260e88}
+header h1{color:#ffe3a0;text-shadow:2px 3px #2b100a;font-size:42px}
+header .sub{color:#efc987}
+main{max-width:1400px;margin:14px auto}
+.banner{background:linear-gradient(90deg,#7b1515,#3b100d 55%,#7b1515);border:3px ridge #c99a4e;border-radius:4px;text-align:center;padding:12px 20px;box-shadow:0 3px 8px #61340b66}
+.banner h2{color:#ffe5a3;margin:0 0 4px}.banner p{color:#eacfa3}
+.layout{grid-template-columns:270px minmax(0,1fr);gap:13px}
+.panel,.authbox{background:linear-gradient(135deg,#fff1cb,#e6ca90);border:3px ridge #bc8b40;border-radius:5px;box-shadow:0 4px 10px #7c542544}
+.panel{padding:16px}.panel h3,.authbox h3{color:#713015;text-shadow:0 1px #ffe2a2}
+.btn{background:linear-gradient(#7d231c,#3e100e);color:#ffe6a7;border:2px ridge #d1a14b;border-radius:5px;box-shadow:inset 0 1px #f7d58c55}
+.btn:hover,.btn.active{background:linear-gradient(#ac4b24,#6b1b12);color:white}
+nav{background:linear-gradient(#5a1612,#270d0c);padding:9px;border:3px ridge #c69b4d;justify-content:center}
+.card{background:#fff1cc;border:1px solid #b88c50}.card h4{color:#743010}.card p{color:#785632}
+.log{background:#3a2119;color:#ffe5b7;border:2px inset #b18548}
+.log p{color:#ffe5b7}
+.chip{background:#e2c188;color:#502b12}
+.authrow input{background:#fff9e9;color:#41240d;border:1px solid #ab7b38}
+.authstatus,.notice{color:#785027}
+.bar{background:#d2b47d}
+.footer{color:#6c461c}
+#map{padding:0;overflow:hidden}
+#map>h3{background:linear-gradient(#7b1b16,#390c0b);color:#ffe0a0;text-align:center;padding:12px;margin:0;border-bottom:4px ridge #d5a34e}
+.city-scene{height:310px;position:relative;overflow:hidden;border-bottom:5px ridge #a9782b;background:linear-gradient(#65b8ed 0%,#c6eafa 48%,#90bd6b 49%,#3f8c3c 79%,#8aab55 100%)}
+.city-scene:before{content:'☁️                  ☁️                 ☁️';position:absolute;left:4%;top:4%;font-size:48px;opacity:.85;white-space:pre}
+.city-scene:after{content:'';position:absolute;left:0;right:0;bottom:0;height:35%;background:repeating-linear-gradient(12deg,transparent 0 27px,#c6b18b 28px 31px),linear-gradient(#b4a383,#ddc6a0);clip-path:polygon(0 100%,36% 0,64% 0,100% 100%)}
+.city-building{position:absolute;z-index:2;border:0;background:transparent;cursor:pointer;font:72px Georgia;filter:drop-shadow(3px 7px 2px #2228);transition:transform .15s}
+.city-building:hover{transform:translateY(-7px) scale(1.08)}
+.city-building small{display:block;font:700 13px Georgia;color:#42190c;background:#ffe9b3eb;border:2px ridge #b98339;padding:4px 7px;border-radius:5px}
+.city-castle{top:12%;left:37%;font-size:110px}.city-church{top:30%;left:9%}.city-shop{top:43%;left:69%}.city-forge{top:48%;left:53%}.city-guild{top:42%;left:24%}
+.city-links{padding:17px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.city-links button{font:700 16px Georgia;color:#62250d;text-decoration:underline;text-align:left;border:0;background:#fff3d455;padding:10px;cursor:pointer}
+.city-links button:hover{background:#dfb66d}
+.city-links span{font-size:25px;vertical-align:middle;margin-right:7px}
+#map .world{padding:14px;grid-template-columns:repeat(3,minmax(0,1fr))}
+#map .place{background:linear-gradient(#f8e5b8,#d8b676);color:#622b14;border:2px ridge #b78437;min-height:75px;padding:10px}
+#map .place span{font-size:25px}
+#map .world-title{margin:14px 16px 0;color:#6e3113}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.city-links{grid-template-columns:repeat(2,1fr)}.city-scene{height:260px}.city-building{font-size:49px}.city-castle{font-size:75px}}
+@media(max-width:520px){header h1{font-size:28px}.city-links{grid-template-columns:1fr 1fr}.city-links button{font-size:13px}.city-scene{height:210px}.city-building{font-size:36px}.city-castle{font-size:60px}#map .world{grid-template-columns:repeat(2,1fr)}}
 </style></head><body><header><div><h1>⚔ DRAKMOR</h1><div class="sub">ĒNU KARAĻVALSTS · 4.0</div></div><div class="sub">VIDUSLAIKU RPG</div></header><main>
 <section class="banner"><h2>Leģenda turpinās</h2><p>Izpēti Drakmoras zemes, uzveic briesmoņus, iegūsti ekipējumu un kļūsti par karaļvalsts leģendu.</p></section>
 <section class="authbox" aria-label="Spēlētāja konts"><h3>👤 Spēlētāja konts</h3><div id="authGuest"><div class="authrow"><input id="authEmail" type="email" autocomplete="email" placeholder="E-pasta adrese" aria-label="E-pasts"><input id="authPassword" type="password" autocomplete="current-password" placeholder="Parole (vismaz 6 rakstzīmes)" aria-label="Parole"><button class="btn" id="signIn" onclick="signIn()">🔐 Pieslēgties</button><button class="btn" id="signUp" onclick="signUp()">📝 Reģistrēties</button></div></div><div id="authMember" class="hidden"><div class="authrow"><strong id="memberEmail"></strong><button class="btn" onclick="signOut()">Izrakstīties</button></div></div><p class="authstatus" id="authStatus" role="status">Ielādē kontu sistēmu…</p><p class="notice">Konts un varonis tiek glabāti mākonī pēc SQL tabulas izveides.</p></section><div class="layout"><aside><div class="panel"><h3>🛡 Tavs varonis</h3><div class="row"><b id="name">Ceļinieks</b><b id="lvl">1. līmenis</b></div><div class="row"><span>❤️ Dzīvība</span><b id="hp">100 / 100</b></div><div class="bar"><span id="hpbar" style="width:100%"></span></div><div class="row"><span>✨ Pieredze</span><b id="xp">0 / 100</b></div><div class="bar"><span id="xpbar" style="width:0%"></span></div><div class="row"><span>⚔ Uzbrukums</span><b id="atk">8</b></div><div class="row"><span>🛡 Aizsardzība</span><b id="def">3</b></div><div class="row"><span>🪙 Zelts</span><b id="gold">25</b></div><div class="row"><span>🏆 Uzvaras</span><b id="wins">0</b></div><button class="btn" onclick="renameHero()">✏ Mainīt vārdu</button></div><div class="panel"><h3>🎒 Ekipējums</h3><div id="equipped"></div><p class="notice">Progress tiek glabāts tavā pārlūkā.</p></div></aside>
 <div><nav><button class="btn active" data-tab="map" onclick="tab('map')">🗺 Karte</button><button class="btn" data-tab="battle" onclick="tab('battle')">⚔ Cīņas</button><button class="btn" data-tab="shop" onclick="tab('shop')">🏪 Veikals</button><button class="btn" data-tab="bag" onclick="tab('bag')">🎒 Inventārs</button><button class="btn" data-tab="quests" onclick="tab('quests')">📜 Uzdevumi</button></nav>
-<section class="panel" id="map"><h3>🗺 Drakmoras pasaules karte</h3><div class="world"><button class="place" onclick="tab('shop')"><span>🏰</span>Karaļa pilsēta</button><button class="place" onclick="selectZone('forest')"><span>🌲</span>Vilku mežs</button><button class="place" onclick="selectZone('cave')"><span>🕳️</span>Tumšā ala</button><button class="place" onclick="selectZone('ruins')"><span>🏚️</span>Aizmirstās drupas</button><button class="place locked" onclick="message('Kalnu cietoksnis būs pieejams nākamajā atjauninājumā.')"><span>🏔️</span>Kalnu cietoksnis 🔒</button><button class="place" onclick="tab('quests')"><span>📜</span>Uzdevumu ģilde</button></div></section>
+<section class="panel" id="map"><h3>🏰 Pilsētas laukums</h3>
+<div class="city-scene" aria-label="Drakmoras pilsētas laukums">
+<button class="city-building city-castle" onclick="tab('quests')" title="Karaļa pils">🏰<small>Karaļa pils</small></button>
+<button class="city-building city-church" onclick="tab('quests')" title="Uzdevumu ģilde">⛪<small>Uzdevumu ģilde</small></button>
+<button class="city-building city-shop" onclick="tab('shop')" title="Tirgus">🏪<small>Tirgus</small></button>
+<button class="city-building city-forge" onclick="tab('shop')" title="Kalve">⚒️<small>Kalve</small></button>
+<button class="city-building city-guild" onclick="tab('battle')" title="Arēna">🏟️<small>Arēna</small></button>
+</div>
+<div class="city-links">
+<button onclick="tab('battle')"><span>⚔️</span>Arēna un cīņas</button>
+<button onclick="tab('shop')"><span>🏪</span>Pilsētas veikals</button>
+<button onclick="tab('shop')"><span>⚒️</span>Kalve un ekipējums</button>
+<button onclick="tab('bag')"><span>🎒</span>Inventārs</button>
+<button onclick="tab('quests')"><span>📜</span>Uzdevumu ģilde</button>
+<button onclick="selectZone('forest')"><span>🌲</span>Vilku mežs</button>
+<button onclick="selectZone('cave')"><span>🕳️</span>Tumšā ala</button>
+<button onclick="selectZone('ruins')"><span>🏚️</span>Aizmirstās drupas</button>
+</div>
+<h3 class="world-title">🗺 Drakmoras pasaules karte</h3><div class="world"><button class="place" onclick="tab('shop')"><span>🏰</span>Karaļa pilsēta</button><button class="place" onclick="selectZone('forest')"><span>🌲</span>Vilku mežs</button><button class="place" onclick="selectZone('cave')"><span>🕳️</span>Tumšā ala</button><button class="place" onclick="selectZone('ruins')"><span>🏚️</span>Aizmirstās drupas</button><button class="place locked" onclick="message('Kalnu cietoksnis būs pieejams nākamajā atjauninājumā.')"><span>🏔️</span>Kalnu cietoksnis 🔒</button><button class="place" onclick="tab('quests')"><span>📜</span>Uzdevumu ģilde</button></div></section>
 <section class="panel hidden" id="battle"><h3>⚔ Medības: <span id="zoneName">Vilku mežs</span></h3><p class="muted" id="zoneDesc"></p><div class="grid" id="monsters"></div><p><button class="btn" onclick="rest()">🔥 Atpūsties krodziņā — 10 zelta</button> <button class="btn" onclick="drink()">🧪 Dzert dziru</button></p></section>
 <section class="panel hidden" id="shop"><h3>🏪 Pilsētas tirgus</h3><div class="grid" id="goods"></div></section>
 <section class="panel hidden" id="bag"><h3>🎒 Tavs inventārs</h3><div id="items"></div></section>
