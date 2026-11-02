@@ -1,0 +1,14 @@
+/* Final polish for the illustrated city; artwork remains the visible interface. */
+#map .reference-ui{pointer-events:none!important}
+#map .reference-ui button{display:none!important;pointer-events:none!important}
+#map .drakmor-image-hit{position:absolute;z-index:50;display:block;cursor:pointer;background:transparent;border:0;color:transparent;font-size:0;outline:none;transition:background-color .18s,box-shadow .18s}
+#map .drakmor-image-hit:hover,#map .drakmor-image-hit:focus-visible{background:#f7c65a22;outline:2px solid #ffd780;outline-offset:-3px;border-radius:16px;box-shadow:inset 0 0 25px #ffbf4a25}
+#map .illustrated-city{background-size:100% 100%!important}
+#map .drakmor-city-menu{position:absolute!important;z-index:55!important;top:.5%!important;left:1.7%!important;width:12.7%!important;height:61%!important;background:transparent!important;border:0!important;box-shadow:none!important}
+#map .drakmor-city-menu button{display:block!important;width:100%!important;height:12.5%!important;min-height:0!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;color:transparent!important;font-size:0!important}
+#map .drakmor-city-menu button:first-child{background:transparent!important}
+#map .drakmor-city-menu button:hover,#map .drakmor-city-menu button:focus-visible{background:#e5b45b26!important;outline:2px solid #e7bd6a!important;border-radius:4px}
+#map .drakmor-city-menu .city-menu-icon{display:none!important}
+#premiumFloatingBtn{right:16px!important;bottom:70px!important;z-index:80!important}
+@media(max-width:800px){#map .illustrated-city{min-width:950px!important;width:950px!important;height:auto!important;aspect-ratio:1672/941!important}#map{overflow-x:auto!important}#premiumFloatingBtn{right:10px!important;bottom:18px!important;max-width:180px!important;font-size:12px!important}}
+@media(prefers-reduced-motion:reduce){#map .drakmor-image-hit{transition:none}}
