@@ -1,0 +1,58 @@
+/* Refined character HUD: parked over the empty top-left scenery,
+   never over the guild / arena location labels. */
+#map .illustrated-city .live-hud{
+ top:1.1%!important;left:15.2%!important;width:clamp(205px,14.4vw,245px)!important;
+ height:77px!important;padding:0!important;max-width:none!important;
+ border:2px solid #e7bb70!important;border-radius:9px!important;
+ background:linear-gradient(150deg,#ffe7ac 0%,#c58b3c 17%,#5d3319 21%,#26170e 100%)!important;
+ box-shadow:0 0 0 2px #402511,0 4px 16px #000b,inset 0 0 0 1px #ffe1a0!important;
+}
+#map .illustrated-city .live-hud .hud-hero{
+ display:grid!important;position:relative!important;inset:auto!important;
+ width:100%!important;height:100%!important;box-sizing:border-box!important;
+ padding:4px 7px!important;gap:2px 5px!important;
+ grid-template-columns:43px minmax(0,1fr) 31px!important;
+ grid-template-rows:19px 19px 19px!important;
+ background:transparent!important;border:0!important;box-shadow:none!important
+}
+#map .illustrated-city .live-hud::before{
+ left:7px!important;top:27px!important;width:36px!important;height:36px!important;
+ border:2px solid #f3cb76!important;box-shadow:0 0 0 2px #59321b,0 2px 7px #000a!important;
+ background:radial-gradient(circle at 50% 35%,#eecb8d 0 12%,#a45e30 13% 31%,#302017 32% 65%,#c18c47 66% 76%,#402512 77%)!important;
+}
+#map .illustrated-city .live-hud::after{
+ right:7px!important;top:33px!important;width:28px!important;height:28px!important;
+ border:2px solid #efc872!important;
+ background:radial-gradient(circle at 32% 28%,#fff2c1,#d7a74e 56%,#753919)!important
+}
+#map .illustrated-city .live-hud #hudName{
+ grid-column:1/3!important;grid-row:1!important;
+ color:#2d170b!important;text-shadow:0 1px #ffe9b3!important;
+ font:700 12px Georgia,serif!important;text-align:center!important
+}
+#map .illustrated-city .live-hud #hudLevel{
+ grid-column:3!important;grid-row:1!important;color:#34190b!important;
+ font:700 10px Georgia,serif!important;text-align:center!important
+}
+#map .illustrated-city .live-hud #hudEnergy,
+#map .illustrated-city .live-hud #hudHp{
+ grid-column:2!important;width:100%!important;min-width:0!important;
+ padding:0 2px!important;margin:0!important;
+ font:700 10px/17px Georgia,serif!important;
+ white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+ border:1px solid #e2ad54!important;border-radius:3px!important;
+ text-align:center!important;color:#fff7dc!important;text-shadow:0 1px 2px #000!important
+}
+#map .illustrated-city .live-hud #hudEnergy{
+ grid-row:2!important;background:linear-gradient(#efc753,#a35d12)!important
+}
+#map .illustrated-city .live-hud #hudHp{
+ grid-row:3!important;background:linear-gradient(#ee5140,#97101b)!important
+}
+#map .illustrated-city .live-hud .classic-hud-percent{
+ top:41px!important;right:7px!important;width:30px!important;
+ font-size:10px!important;color:#fff0b9!important
+}
+@media(max-width:800px){
+ #map .illustrated-city .live-hud{left:15.2%!important;top:1%!important;width:205px!important;height:77px!important}
+}
