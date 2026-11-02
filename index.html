@@ -440,17 +440,5 @@ function closePlace(){document.getElementById('placeDialog').hidden=true}
 function openWorldMap(){tab('map');document.querySelector('.world')?.scrollIntoView({behavior:'smooth',block:'center'});openPlace('Pasaules karte','Izvēlies medību vietu: Vilku mežs, Tumšā ala vai Aizmirstās drupas.')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlace()});
 </script><div id="placeDialog" class="place-dialog" role="dialog" aria-modal="true" aria-label="Spēles sadaļa" hidden><div class="place-dialog-inner"><h3></h3><p></p><button class="btn" onclick="closePlace()">Aizvērt</button></div></div><script>document.addEventListener('keydown',e=>{if(e.key==='Escape')tab('map')});</script>
-<script>
-(function alignExpandedCityHotspots(){
-  const city=document.querySelector('#map .illustrated-city');
-  if(!city)return;
-  city.querySelectorAll('.reference-ui button').forEach(button=>{
-    const x=parseFloat(button.style.left),y=parseFloat(button.style.top),w=parseFloat(button.style.width);
-    if(Number.isFinite(x)&&Number.isFinite(y)&&Number.isFinite(w)&&x>=16.3&&y>=22.35&&y<87.1){
-      button.style.left=(16.3+(x-16.3)*1.245)+'%';
-      button.style.width=(w*1.245)+'%';
-    }
-  });
-})();
-</script>
+
 </body></html>
