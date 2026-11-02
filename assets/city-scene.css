@@ -1,0 +1,50 @@
+/* Drakmor city-scene interface: presentation only, existing game handlers preserved */
+:root{color-scheme:dark}
+body{background:#080b10!important}
+main{max-width:none!important;padding:0!important;margin:0!important}
+.layout{display:block!important}
+.game-center{width:100%!important}
+#map{width:100%!important;max-width:none!important;border:0!important;margin:0!important;padding:0!important;background:#0a1016!important}
+#map .illustrated-city{display:block!important;position:relative!important;width:100%!important;height:100vh!important;min-height:650px!important;aspect-ratio:auto!important;border:0!important;background:linear-gradient(90deg,#080d15a6,transparent 27%,transparent 75%,#090d16a6),url("drakmor-citadel.svg") center center / cover no-repeat!important}
+#map .illustrated-city:before,#map .illustrated-city:after{display:none!important}
+#map .city-expanded-art,#map .city-extra-locations,#map .live-hud,#map .live-top-tools{display:none!important}
+#map .reference-ui{position:absolute!important;inset:0!important;display:block!important;background:none!important;border:0!important;padding:0!important;box-shadow:none!important;z-index:10!important;pointer-events:none}
+#map .reference-ui button{display:none!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19){position:absolute!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;min-height:0!important;width:auto!important;height:auto!important;left:auto!important;top:auto!important;padding:9px 24px!important;border:3px ridge #bd904d!important;border-radius:5px 18px 5px 18px!important;background:linear-gradient(180deg,#31261be8,#100e0de8)!important;color:#ffe9bd!important;font:700 clamp(15px,1.5vw,23px) Georgia,serif!important;text-shadow:0 2px 3px #000!important;box-shadow:0 4px 14px #000c,inset 0 1px #fff5!important;cursor:pointer!important;pointer-events:auto!important;transform:none!important;transition:filter .2s,scale .2s!important;white-space:nowrap!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19):before{content:none!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19):hover{filter:brightness(1.3)!important;scale:1.05!important}
+#map .reference-ui button:nth-child(5){left:15%!important;top:34%!important}
+#map .reference-ui button:nth-child(6){left:79%!important;top:31%!important}
+#map .reference-ui button:nth-child(7){left:63%!important;top:29%!important}
+#map .reference-ui button:nth-child(8){left:17%!important;top:62%!important}
+#map .reference-ui button:nth-child(9){left:38%!important;top:30%!important}
+#map .reference-ui button:nth-child(10){left:28%!important;top:7%!important}
+#map .reference-ui button:nth-child(11){left:54%!important;top:68%!important}
+#map .reference-ui button:nth-child(12){left:79%!important;top:10%!important}
+#map .reference-ui button:nth-child(13),#map .reference-ui button:nth-child(14),#map .reference-ui button:nth-child(15),#map .reference-ui button:nth-child(16),#map .reference-ui button:nth-child(17),#map .reference-ui button:nth-child(18),#map .reference-ui button:nth-child(19){display:none!important}
+#map .reference-ui button:nth-child(12){left:78%!important;top:11%!important}
+#map .reference-ui button:nth-child(15){display:flex!important;left:79%!important;top:64%!important}
+#map .reference-ui button:nth-child(15){display:none!important}
+#map .reference-ui button:nth-child(14){display:flex!important;left:77%!important;top:66%!important}
+#map .reference-ui button:nth-child(14){display:none!important}
+#map .reference-ui button:nth-child(5):after{content:" 🎲"}
+#map .reference-ui button:nth-child(6):after{content:" 🛍"}
+#map .reference-ui button:nth-child(7):after{content:" ⚒"}
+#map .reference-ui button:nth-child(8):after{content:" ⚗"}
+#map .reference-ui button:nth-child(9):after{content:" 🪙"}
+#map .reference-ui button:nth-child(10):after{content:" 🏰"}
+#map .reference-ui button:nth-child(11):after{content:" 📜"}
+#map .reference-ui button:nth-child(12):after{content:" ⚔"}
+#map .reference-ui button:nth-child(13){display:flex!important;left:77%!important;top:66%!important}
+#map .reference-ui button:nth-child(13){font-size:0!important}
+#map .reference-ui button:nth-child(13):after{content:"Medības 🐺";font-size:20px}
+#map .reference-ui button:nth-child(13){display:none!important}
+#map .reference-ui button:nth-child(14){display:none!important}
+.drakmor-city-menu{position:fixed;z-index:100;top:24px;left:8px;width:210px;display:flex;flex-direction:column;border:4px ridge #a38b68;background:linear-gradient(#171410f5,#090b0ff2);box-shadow:0 10px 25px #000d;border-radius:7px;max-height:calc(100vh - 45px);overflow-y:auto}
+.drakmor-city-menu button{border:0;border-bottom:1px solid #625341;background:transparent;color:#f6e8d0;font:700 19px Georgia,serif;padding:15px 12px;text-align:left;cursor:pointer;transition:background .2s}
+.drakmor-city-menu button:hover,.drakmor-city-menu button:focus-visible{background:linear-gradient(90deg,#9c6d1c,#38220f);outline:1px solid #d6a957}
+.drakmor-city-menu button:first-child{background:linear-gradient(#a87a20,#4a2c0e)}
+.drakmor-city-menu .city-menu-icon{display:inline-block;width:40px;font-size:26px;vertical-align:middle}
+.drakmor-scene-title{position:absolute;top:2%;left:50%;transform:translateX(-50%);z-index:2;font:700 clamp(20px,2vw,34px) Georgia,serif;letter-spacing:.25em;color:#f5d18b;text-shadow:0 4px 9px #000,0 0 18px #000}
+#map .city-links,#map .world-title,#map .world{display:none!important}
+@media(max-width:800px){#map .illustrated-city{height:100svh!important;min-height:600px!important;background-position:center!important}.drakmor-city-menu{width:155px;top:8px;left:4px}.drakmor-city-menu button{font-size:13px;padding:9px 5px}.drakmor-city-menu .city-menu-icon{font-size:18px;width:27px}.drakmor-scene-title{left:65%;font-size:19px}#map .reference-ui button:nth-child(n+5):nth-child(-n+19){font-size:13px!important;padding:6px 10px!important}#map .reference-ui button:nth-child(5){left:49%!important;top:33%!important}#map .reference-ui button:nth-child(6){left:68%!important;top:44%!important}#map .reference-ui button:nth-child(7){left:60%!important;top:54%!important}#map .reference-ui button:nth-child(8){left:51%!important;top:72%!important}#map .reference-ui button:nth-child(9){left:48%!important;top:23%!important}#map .reference-ui button:nth-child(10){left:48%!important;top:13%!important}#map .reference-ui button:nth-child(11){left:59%!important;top:82%!important}#map .reference-ui button:nth-child(12){left:70%!important;top:29%!important}}
