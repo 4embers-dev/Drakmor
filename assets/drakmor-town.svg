@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrēta Drakmoras viduslaiku pilsēta ar pili, baznīcu, tirgu un arēnu" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#367da9"/><stop offset=".7" stop-color="#c8e7e6"/><stop offset="1" stop-color="#f8e7b4"/></linearGradient><linearGradient id="grass" x2="0" y2="1"><stop stop-color="#739e50"/><stop offset="1" stop-color="#284d2d"/></linearGradient><linearGradient id="wall" x2="0" y2="1"><stop stop-color="#e4d4b4"/><stop offset="1" stop-color="#998c79"/></linearGradient><pattern id="brick" width="24" height="15" patternUnits="userSpaceOnUse"><path d="M0 0H24M12 0V7M0 7H24M0 7V15M24 7V15" stroke="#655c51" stroke-width=".8" opacity=".3" fill="none"/></pattern><filter id="shadow"><feDropShadow dx="3" dy="7" stdDeviation="5" flood-opacity=".35"/></filter></defs>
+<path fill="url(#sky)" d="M0 0h1200v480H0z"/><circle cx="1005" cy="83" r="50" fill="#fff0c1" opacity=".65"/>
+<g fill="#f7faf3" opacity=".7"><ellipse cx="150" cy="72" rx="100" ry="18"/><ellipse cx="210" cy="62" rx="65" ry="24"/><ellipse cx="810" cy="53" rx="115" ry="20"/><ellipse cx="745" cy="46" rx="70" ry="22"/></g>
+<path d="M0 232 85 143 146 198 249 117 350 228 457 153 550 224 671 121 787 231 912 149 1030 224 1132 137 1200 213V350H0" fill="#78979a"/><path d="M0 267 122 209 230 240 360 192 479 247 604 191 735 246 884 201 1012 247 1120 203 1200 240V380H0" fill="#6e9868"/><path d="M0 290Q220 225 460 275T920 267T1200 269V480H0" fill="url(#grass)"/>
+<path d="M0 338Q300 289 650 335T1200 323" stroke="#9c9874" stroke-width="19" fill="none"/><path d="M0 351Q300 302 650 348T1200 336" stroke="#b6ae8e" stroke-width="5" fill="none"/>
+<path d="M0 480 410 362 530 340 715 343 1200 480Z" fill="#c6ae7d"/><path d="M130 480 470 369 730 366 1040 480" fill="none" stroke="#e3d2aa" stroke-width="13" opacity=".7"/>
+<g filter="url(#shadow)">
+<!-- distant fortified wall -->
+<path d="M50 263H1150V300H50z" fill="#a49a87" stroke="#544b40" stroke-width="3"/><path d="M50 263H1150" stroke="#e7d7b5" stroke-width="6" stroke-dasharray="22 9"/>
+<!-- central castle -->
+<path d="M436 179h295v155H436z" fill="url(#wall)" stroke="#53493e" stroke-width="5"/><path d="M436 179h295v155H436z" fill="url(#brick)"/>
+<path d="M467 164h48v170h-48zM654 164h48v170h-48z" fill="#c6b7a1" stroke="#51463d" stroke-width="4"/>
+<path d="M460 164 491 97 522 164zM647 164 678 97 709 164z" fill="#354c60" stroke="#272e38" stroke-width="5"/>
+<path d="M536 142h96v192h-96z" fill="#d5c5a9" stroke="#50473d" stroke-width="5"/><path d="M529 142 584 49 639 142z" fill="#465d70" stroke="#2d3742" stroke-width="6"/><path d="M573 68h22v-39h-22z" fill="#d5c5a9" stroke="#4e463f" stroke-width="3"/><path d="M567 29 584 5 601 29z" fill="#394e64"/>
+<path d="M568 334v-58a17 17 0 0 1 34 0v58" fill="#553a29" stroke="#33241d" stroke-width="4"/>
+<g fill="#2f3740"><path d="M478 208v-35a12 12 0 0 1 24 0v35zM666 208v-35a12 12 0 0 1 24 0v35zM570 203v-45a14 14 0 0 1 28 0v45z"/></g>
+<!-- church left -->
+<path d="M105 271h180v105H105z" fill="#e4d8b7" stroke="#695e4e" stroke-width="5"/><path d="M94 272 195 216 296 272z" fill="#9d4931" stroke="#603c31" stroke-width="5"/>
+<path d="M160 184h60v192h-60z" fill="#c9c4ad" stroke="#615a4e" stroke-width="4"/><path d="M153 184 190 109 227 184z" fill="#4d5f64" stroke="#39464a" stroke-width="4"/><path d="M184 103v-25m-13 11h26" stroke="#f1d27c" stroke-width="5"/><path d="M183 229v-32a8 8 0 0 1 16 0v32" fill="#486e85"/><path d="M113 321h32v55h-32zM247 321h25v55h-25z" fill="#5c4a3e"/>
+<!-- inn -->
+<path d="M788 285h166v94H788z" fill="#e4cba2" stroke="#685440" stroke-width="4"/><path d="M773 284 866 222 970 284z" fill="#a64c2c" stroke="#593a2d" stroke-width="5"/><path d="M841 379v-60a24 24 0 0 1 48 0v60" fill="#5a3e2b"/><path d="M805 307h23v28h-23zM915 307h23v28h-23z" fill="#7298a1" stroke="#705c49" stroke-width="4"/>
+<!-- market right -->
+<path d="M991 309h144v77H991z" fill="#d9c4a4" stroke="#6d5541" stroke-width="4"/><path d="M980 309 1063 262 1148 309z" fill="#775241" stroke="#503c32" stroke-width="5"/><path d="M1014 331h35v55h-35zM1074 333h33v53h-33z" fill="#4c5f5e"/><path d="M971 377h182v16H971z" fill="#a3653a"/><path d="M967 358h190l-19-33H984z" fill="#b7422d"/><path d="M987 326h28v32h-28zM1042 326h28v32h-28zM1098 326h28v32h-28z" fill="#f4e6b5"/>
+<!-- left cottages -->
+<path d="M21 317h83v71H21z" fill="#cdbf9c" stroke="#5e5547" stroke-width="3"/><path d="M13 317 62 271 114 317z" fill="#934a34" stroke="#604233" stroke-width="4"/><path d="M302 321h110v65H302z" fill="#d9c4a0" stroke="#65513d" stroke-width="4"/><path d="M292 321 359 278 424 321z" fill="#a45135" stroke="#5f392e" stroke-width="4"/>
+</g>
+<!-- trees -->
+<g><g fill="#274e31" stroke="#203b27" stroke-width="4"><circle cx="34" cy="310" r="39"/><circle cx="76" cy="285" r="32"/><circle cx="344" cy="393" r="37"/><circle cx="747" cy="380" r="38"/><circle cx="1174" cy="320" r="43"/></g><g fill="#4e8745" opacity=".85"><circle cx="26" cy="298" r="30"/><circle cx="72" cy="277" r="25"/><circle cx="340" cy="383" r="29"/><circle cx="744" cy="371" r="29"/><circle cx="1165" cy="311" r="34"/></g></g>
+<path d="M0 475H1200" stroke="#73552d" stroke-width="9"/>
+</svg>
