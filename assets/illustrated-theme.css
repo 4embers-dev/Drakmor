@@ -1,0 +1,25 @@
+/* Drakmor illustrated fantasy theme — visual-only enhancement.
+   Keep existing IDs, event handlers and game state unchanged. */
+:root{color-scheme:dark;--gold:#e8b966;--line:#a87a3e;--text:#f6e7c4;--muted:#cbb58c}
+body{background:radial-gradient(ellipse at 50% -10%,#35404b 0%,#101923 38%,#100907 90%)!important;color:#f5e2bd}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(90deg,#100a07b8,transparent 18%,transparent 82%,#100a07b8),url("drakmor-citadel.svg") center top / cover no-repeat;opacity:.25}
+#map{max-width:1800px;margin:auto!important}
+#map .illustrated-city{background:linear-gradient(180deg,#111b28b5,#17202ab5),url("drakmor-citadel.svg") center 37% / cover no-repeat!important;border:4px ridge #b8893f!important;min-height:220px;position:relative}
+#map .illustrated-city::before{content:"DRAKMOR"!important;display:block!important;position:absolute!important;inset:6% 0 auto!important;text-align:center!important;font:700 clamp(35px,5.7vw,88px) Georgia,serif!important;letter-spacing:.12em!important;color:#f4c979!important;text-shadow:0 3px 0 #301607,0 8px 18px #050405,0 0 24px #c68d3c88!important;z-index:2;pointer-events:none}
+#map .illustrated-city::after{content:"✦ KARAĻVALSTS VĀRTI · IZVĒLIES SAVU CEĻU ✦"!important;position:absolute!important;inset:auto 0 9%!important;display:block!important;text-align:center!important;font:700 clamp(10px,1.3vw,20px) Georgia,serif!important;letter-spacing:.14em;color:#ffe5ac!important;text-shadow:0 3px 8px #000!important;z-index:2;pointer-events:none}
+#map .live-top-tools{border:3px ridge #bd8d44!important;background:linear-gradient(180deg,#4e1010,#23090a)!important;box-shadow:inset 0 0 35px #0008,0 8px 18px #0009!important;border-radius:10px!important}
+#map .live-tool-buttons button{background:linear-gradient(160deg,#343943,#131a23)!important;color:#ffe4aa!important;border:2px ridge #bd924d!important;box-shadow:inset 0 1px #ffffff22,0 3px 9px #0008!important;border-radius:8px!important;transition:transform .18s,filter .18s}
+#map .live-tool-buttons button:hover,#map .live-tool-buttons button:focus-visible{transform:translateY(-4px);filter:brightness(1.2);outline:2px solid #ffdb8a}
+#map .live-tool-buttons button span{filter:drop-shadow(1px 3px 2px #000)}
+#map .reference-ui{gap:12px!important;padding:16px!important;background:linear-gradient(180deg,#19222c,#0e141b)!important;border:4px ridge #ad803e!important;border-radius:12px!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19){min-height:clamp(135px,13vw,205px)!important;border:2px ridge #b68b4c!important;border-radius:12px!important;background-size:cover!important;background-position:center!important;box-shadow:inset 0 -65px 45px -30px #070d15,0 4px 12px #0008!important;color:#ffe6ac!important;text-shadow:0 2px 5px #000,0 0 8px #000!important;font:700 clamp(13px,1.15vw,20px) Georgia,serif!important;transition:transform .2s,filter .2s,box-shadow .2s!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19)::before{content:none!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19):hover{transform:translateY(-4px) scale(1.015);filter:brightness(1.22);box-shadow:0 0 0 2px #f6ce75,0 10px 20px #000a!important}
+#map .reference-ui button:nth-child(n+5):nth-child(-n+19):focus-visible{outline:3px solid #ffe09b;outline-offset:2px}
+.panel:not(#map),.authbox,.place-dialog-inner,.rank-inner,.guild-inner,.premium-box{border:3px ridge #bd8c43!important;background:linear-gradient(145deg,#38241b,#1c1718)!important;color:#f6e5c5!important;box-shadow:0 12px 32px #0008!important}
+.panel:not(#map) h3,.authbox h3{color:#ffe1a0!important}
+.btn{background:linear-gradient(#8c3325,#3b1113)!important;color:#ffe6b3!important;border:2px ridge #c49b52!important}
+.btn:hover{filter:brightness(1.18)}
+input,select,textarea{max-width:100%}
+@media(max-width:760px){#map .reference-ui{gap:8px!important;padding:8px!important}#map .reference-ui button:nth-child(n+5):nth-child(-n+19){min-height:125px!important;font-size:13px!important}#map .illustrated-city{min-height:170px}#map .illustrated-city::before{top:13%!important}}
+@media(prefers-reduced-motion:reduce){#map .reference-ui button,#map .live-tool-buttons button{transition:none!important}}
