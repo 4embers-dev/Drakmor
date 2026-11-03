@@ -560,6 +560,15 @@
 /* Mask only the baked-in left wallet panel; keep Eldrik and all weapon art unchanged. */
 #shopBackdrop .shopWalletMask{position:absolute;left:6.4%;top:69.9%;width:13.8%;height:9.4%;z-index:3;pointer-events:none;background:linear-gradient(180deg,#210b05,#270d06 70%,#200a04);border-radius:4px}
 #shopBackdrop:not(.shopWeaponsView) .shopWalletMask{left:6.4%;top:73.8%;height:10.8%}
+/* Approved new category illustration; keep the existing weapon art and precise hotspots. */
+#shopBackdrop:not(.shopWeaponsView) .illustratedShopArt{background-image:url('./drakmor-shop-new.png')!important}
+#shopBackdrop:not(.shopWeaponsView) .shopWalletMask{display:none!important}
+#shopBackdrop:not(.shopWeaponsView) .shopGoldOverlay{left:auto!important;right:6.7%!important;top:6.35%!important;width:9.2%!important;height:4.15%!important;min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#180806!important;box-shadow:none!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:clamp(10px,1.65vw,24px)!important;line-height:1!important;z-index:6!important}
+#shopBackdrop:not(.shopWeaponsView) .shopGoldOverlay:before{display:none!important}
+#shopBackdrop:not(.shopWeaponsView) .shopGoldOverlay span{display:none!important}
+#shopBackdrop:not(.shopWeaponsView) .shopGoldOverlay strong{font-family:Georgia,serif;color:#ffde59!important;font-size:1em!important;text-shadow:0 2px 2px #000}
+#shopBackdrop:not(.shopWeaponsView) .illustratedShopExit{right:3.7%;top:1.3%;opacity:0;z-index:10;width:3%;height:5%;border:0}
+#shopBackdrop:not(.shopWeaponsView) .illustratedShopExit:focus-visible{opacity:1}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
