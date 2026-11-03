@@ -578,6 +578,9 @@
 #drakmorShopV2 .v2ArtGold{position:absolute;left:83.7%;top:9.4%;width:9.4%;height:3.6%;display:flex;align-items:center;justify-content:center;background:linear-gradient(#180802,#220c04);font:bold clamp(9px,1.8vw,25px) Georgia,serif;color:#ffe54c;text-shadow:0 1px 3px #000;pointer-events:none;white-space:nowrap}
 #drakmorShopV2 .v2ArtClose{position:absolute;right:2.7%;top:1.1%;width:3.2%;height:5%;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;color:transparent!important}
 #drakmorShopV2 .v2ArtClose:focus-visible{outline:2px solid #ffe18c}
+/* Repaint the whole baked-in wallet text area (not just digits), so the original static 50 zelts and its stray s cannot show through. */
+#shopBackdrop.shopV2 #drakmorShopV2.v2IllustratedCategories .v2ArtGold{left:85.5%!important;top:9.4%!important;width:9.3%!important;height:4.7%!important;z-index:5!important;background:#170803!important;font:bold clamp(10px,1.45vw,23px) Georgia,serif!important;letter-spacing:0!important;color:#ffe44c!important;white-space:nowrap!important}
+#shopBackdrop.shopV2 #drakmorShopV2.v2IllustratedCategories .v2ArtGold:before{content:'';position:absolute;left:-3%;right:-15%;top:-12%;bottom:-8%;background:#170803;z-index:-1}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
