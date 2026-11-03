@@ -196,7 +196,13 @@
  background-color:transparent!important;
  z-index:7!important;
 }
-</style><style>.tacticalArtwork::before{display:none!important}.combatControlsImage{top:19.6%!important}</style><style>/* Keep dragon jaw fully visible above title */.tacticalArtwork::before{display:none!important}.combatControlsImage{top:22.1%!important}</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
+</style><style>.tacticalArtwork::before{display:none!important}.combatControlsImage{top:19.6%!important}</style><style>/* Keep dragon jaw fully visible above title */.tacticalArtwork::before{display:none!important}.combatControlsImage{top:22.1%!important}</style><style>
+/* Seamless dragon artwork: replace only the upper dragon illustration.
+   The controls panel and its interactive choices remain untouched. */
+.tacticalArtwork::before{content:""!important;display:block!important;position:absolute!important;left:27.1%!important;top:0!important;width:46.7%!important;height:22.1%!important;background-image:url('./drakmor-dragon-banner.png')!important;background-repeat:no-repeat!important;background-position:center top!important;background-size:100% 135%!important;background-color:transparent!important;z-index:9!important;pointer-events:none!important}
+.combatControlsImage{z-index:10!important}
+.combatControlsImage~.tacticalStrike{z-index:11!important}
+</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
 <button class="hotspot" style="left:22%;top:31%;width:15%;height:10%" data-screen="Arēna" aria-label="Arēna"></button>
