@@ -578,9 +578,9 @@ shopCategory='Ieroči';$('shopBackdrop').classList.add('shopBrowsing','shopWeapo
 const tabs=$('shopTabs'),grid=$('shopGrid');tabs.replaceChildren();grid.replaceChildren();
 const back=document.createElement('button');back.type='button';back.className='shopWeaponBack';back.textContent='← Atpakaļ uz kategorijām';back.onclick=renderIllustratedShop;tabs.append(back);
 shopCatalog['Ieroči'].forEach(([icon,name,bonus,price,level],i)=>{
-const btn=document.createElement('button');btn.type='button';btn.className='shopWeaponHotspot';btn.setAttribute('aria-label',name+', '+level+'. līmenis, spēks +'+bonus+', '+price+' zelts');btn.title=name+' · Lv. '+level+' · Spēks +'+bonus+' · '+price+' zelts';
+const btn=document.createElement('button');btn.type='button';btn.className='shopWeaponHotspot';btn.setAttribute('aria-label',name+', '+level+'. līmenis, spēks +'+bonus+', '+price+' zelts');
 const col=i%5,row=Math.floor(i/5);
-Object.assign(btn.style,{left:(23.1+col*15.05)+'%',top:(25.9+row*15.4)+'%',width:'14.1%',height:'14.7%'});
+Object.assign(btn.style,{left:(19.55+col*13.68)+'%',top:(26.3+row*14.65)+'%',width:'12.65%',height:'13.85%'});
 btn.onclick=()=>{grid.querySelectorAll('.shopWeaponHotspot').forEach(el=>el.removeAttribute('aria-selected'));btn.setAttribute('aria-selected','true');shopFooterMessage(name+' · Nepieciešamais līmenis: '+level+' · Spēks: +'+bonus+' · Cena: '+price+' zelts. Pirkšana vēl nav pieejama.',true)};
 grid.append(btn)});
 shopFooterMessage('Ieroči: 20 priekšmeti · Izvēlies ieroci, lai apskatītu īpašības.',true)
