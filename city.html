@@ -210,6 +210,15 @@
 .tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
 .tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
 .tacticalChoice{height:5.35%!important}
+</style><style>
+/* Precise cover for baked-in checked boxes; show checks only for actual player choices. */
+.tacticalChoice.tacticalBlockChoice::before{content:""!important;display:block!important;position:absolute;left:5.7%;top:12%;width:13%;height:76%;border:2px solid #b98531;border-radius:4px;background:#07111b;box-sizing:border-box;z-index:10;box-shadow:0 0 0 3px #081019}
+.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]::before{background:#102c29;border-color:#ffe078;box-shadow:0 0 8px #e7b83c}
+.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓"!important;display:grid!important;position:absolute;left:5.7%;top:10%;width:13%;height:80%;place-items:center;z-index:11;color:#ffdc5e;font:bold clamp(11px,1.6vw,25px) Arial;text-shadow:0 0 7px #f90}
+.tacticalChoice.tacticalBlockChoice[aria-pressed="false"]::after{content:none!important;display:none!important}
+.tacticalChoice.tacticalAttackChoice[data-hit="0"]::after{content:"◯  🪖  Sitiens pa galvu"!important;background:#2b0b0b!important;color:#ffe4ac!important}
+.tacticalChoice.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::after{content:"🔘  🪖  Sitiens pa galvu"!important;background:#65100d!important}
+.tacticalChoice.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{box-shadow:none!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
