@@ -511,7 +511,7 @@
 #shopBackdrop.shopWeaponsView .illustratedShopTabs{display:block!important;z-index:3;pointer-events:none}
 #shopBackdrop.shopWeaponsView .illustratedShopItems{inset:0!important;overflow:visible!important;z-index:2;pointer-events:none!important}
 #shopBackdrop .shopWeaponHotspot{position:absolute!important;background:transparent!important;color:transparent!important;border:0!important;border-radius:7px!important;pointer-events:auto!important;cursor:pointer!important}
-#shopBackdrop .shopWeaponHotspot:hover,#shopBackdrop .shopWeaponHotspot[aria-selected=true],#shopBackdrop .illustratedShopItems .shopWeaponHotspot:hover{box-shadow:none!important;outline:none!important;background:transparent!important}
+#shopBackdrop .shopWeaponHotspot:hover,#shopBackdrop .shopWeaponHotspot[aria-selected=true],#shopBackdrop .illustratedShopItems .shopWeaponHotspot:hover,#shopBackdrop .illustratedShopItems .shopWeaponHotspot[aria-selected=true]{box-shadow:none!important;outline:none!important;background:transparent!important;border-color:transparent!important}
 #shopBackdrop .shopWeaponBack{position:absolute!important;left:22%!important;top:18%!important;width:17%!important;height:5%!important;z-index:5;pointer-events:auto!important;cursor:pointer;background:transparent!important;color:transparent!important;border:0!important;font-size:0!important}
 #shopBackdrop .shopWeaponBack:focus-visible{outline:3px solid #ffe394!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
@@ -580,7 +580,7 @@ const back=document.createElement('button');back.type='button';back.className='s
 shopCatalog['Ieroči'].forEach(([icon,name,bonus,price,level],i)=>{
 const btn=document.createElement('button');btn.type='button';btn.className='shopWeaponHotspot';btn.setAttribute('aria-label',name+', '+level+'. līmenis, spēks +'+bonus+', '+price+' zelts');btn.title=name+' · Lv. '+level+' · Spēks +'+bonus+' · '+price+' zelts';
 const col=i%5,row=Math.floor(i/5);
-Object.assign(btn.style,{left:(26.0+col*15.05)+'%',top:(27.0+row*15.4)+'%',width:'8.5%',height:'8.4%'});
+Object.assign(btn.style,{left:(23.1+col*15.05)+'%',top:(25.9+row*15.4)+'%',width:'14.1%',height:'14.7%'});
 btn.onclick=()=>{grid.querySelectorAll('.shopWeaponHotspot').forEach(el=>el.removeAttribute('aria-selected'));btn.setAttribute('aria-selected','true');shopFooterMessage(name+' · Nepieciešamais līmenis: '+level+' · Spēks: +'+bonus+' · Cena: '+price+' zelts. Pirkšana vēl nav pieejama.',true)};
 grid.append(btn)});
 shopFooterMessage('Ieroči: 20 priekšmeti · Izvēlies ieroci, lai apskatītu īpašības.',true)
