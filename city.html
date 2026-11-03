@@ -174,6 +174,13 @@
 .combatControlsImage~.tacticalStrike::after{content:"⚔ Uz priekšu!";font:bold clamp(13px,2vw,26px) Georgia,serif;text-shadow:1px 2px 3px #000}
 .combatControlsImage~.tacticalStrike:hover:not(:disabled){filter:brightness(1.2)}
 .combatControlsImage~.tacticalStrike:disabled{opacity:.65;filter:grayscale(.45)}
+</style><style>
+/* Align approved control art and use the original painted advance button once. */
+.combatControlsImage{top:21.3%;left:27.1%;width:46.7%}
+.combatControlsImage~.tacticalStrike{left:35.1%!important;top:77.1%!important;width:29.5%!important;height:10.1%!important;z-index:11!important;border:0!important;border-radius:12px!important;background:transparent!important;box-shadow:none!important;color:transparent!important;display:block!important;filter:none!important}
+.combatControlsImage~.tacticalStrike::after{content:none!important;display:none!important}
+.combatControlsImage~.tacticalStrike:hover:not(:disabled),.combatControlsImage~.tacticalStrike:focus-visible{outline:2px solid #ffe0a3!important;outline-offset:-5px!important;background:#ffbb3020!important}
+.combatControlsImage~.tacticalStrike:disabled{opacity:1!important;filter:none!important;cursor:not-allowed}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
