@@ -458,7 +458,7 @@
 /* Approved original illustration is the complete shop UI. Interactive zones are transparent. */
 #shopBackdrop.shopBackdrop{padding:0!important;background:#090506!important;align-items:center!important;justify-content:center!important;overflow:auto!important}
 #shopBackdrop .illustratedShop{width:min(100vw,calc(89dvh * 1.5),1536px);max-width:1536px;margin:auto;flex:none}
-#shopBackdrop .illustratedShopArt{width:100%;aspect-ratio:3/2;position:relative;background:url('./drakmor-shop.png') center / 100% 100% no-repeat}
+#shopBackdrop .illustratedShopArt{width:100%;aspect-ratio:3/2;position:relative;background:url('./drakmor-shop-categories.png') center / 100% 100% no-repeat}
 #shopBackdrop .illustratedShopTabs,#shopBackdrop .illustratedShopItems{position:absolute;inset:0;pointer-events:none}
 #shopBackdrop .illustratedShopTabs button,#shopBackdrop .illustratedShopItems button{position:absolute;border:0;outline:0;background:transparent;color:transparent;font-size:0;cursor:pointer;pointer-events:auto;border-radius:8px}
 #shopBackdrop .illustratedShopTabs button:focus-visible,#shopBackdrop .illustratedShopItems button:focus-visible{outline:3px solid #ffe394!important;outline-offset:-4px!important}
@@ -469,6 +469,22 @@
 #shopBackdrop .illustratedShopDetails{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;padding:8px 16px;background:linear-gradient(90deg,#1d0d08,#3c160b,#1d0d08);border:2px ridge #c18a42;color:#fce2ac;font:16px Georgia,serif;text-align:center}
 #shopBackdrop .illustratedShopDetails button{padding:7px 14px;background:linear-gradient(#dba04d,#784011);color:#1b0d07;border:2px ridge #e4b66a;border-radius:6px;font:bold 14px Georgia,serif;cursor:pointer}
 @media(max-width:700px){#shopBackdrop .illustratedShop{width:max(780px,100vw);max-width:none}#shopBackdrop.shopBackdrop{justify-content:flex-start}#shopBackdrop .illustratedShopDetails{font-size:13px}}
+</style><style>
+#shopBackdrop .illustratedShopArt{aspect-ratio:1536/1024!important}
+#shopBackdrop .illustratedShop{width:min(100vw,calc(89dvh * 1.5),1536px)!important}
+#shopBackdrop.shopBrowsing .illustratedShopArt::before{content:"";position:absolute;inset:13% 8% 13% 25%;background:linear-gradient(145deg,#230c0aee,#0d0a0bea);border:4px ridge #dba34c;box-shadow:inset 0 0 30px #000,0 0 25px #000;z-index:1}
+#shopBackdrop.shopBrowsing .illustratedShopTabs{display:none}
+#shopBackdrop.shopBrowsing .illustratedShopItems{z-index:2;inset:14% 9% 14% 26%;overflow-y:auto;pointer-events:auto}
+#shopBackdrop .shopCategoryView{padding:2% 3%;color:#ffe3a8;font:18px Georgia,serif}
+#shopBackdrop .shopCategoryHeader{display:flex;align-items:center;gap:22px;border-bottom:2px solid #c78a3d;margin-bottom:15px}
+#shopBackdrop .shopCategoryHeader h2{font-size:clamp(24px,3vw,40px);margin:8px 0;color:#ffe5ac}
+#shopBackdrop .shopCategoryHeader button{background:linear-gradient(#a55a24,#3a140b);color:#ffe7b7;border:2px ridge #e2ad52;border-radius:5px;padding:9px;cursor:pointer;font:700 15px Georgia,serif}
+#shopBackdrop .shopCategoryCards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#shopBackdrop .shopCategoryCards .shopCategoryCard{position:static!important;pointer-events:auto!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;width:100%;min-height:175px;border:3px ridge #c99340;background:radial-gradient(#5a170d,#180908);color:#ffe2a4;font:16px Georgia,serif;cursor:pointer}
+#shopBackdrop .shopCategoryCards .shopCategoryCard:hover,#shopBackdrop .shopCategoryCards .shopCategoryCard[aria-selected=true]{box-shadow:inset 0 0 0 2px #ffe3a3,0 0 15px #e78938}
+#shopBackdrop .shopCategoryIcon{font-size:58px}
+#shopBackdrop .shopCategoryHint{text-align:center;color:#c9a57d;font-style:italic;font-size:15px}
+@media(max-width:700px){#shopBackdrop .shopCategoryCards{grid-template-columns:repeat(2,minmax(0,1fr))}#shopBackdrop .shopCategoryCards .shopCategoryCard{min-height:120px}#shopBackdrop .shopCategoryIcon{font-size:36px}}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
@@ -512,11 +528,25 @@ let shopCategory='Visas';
 function renderShop(){const tabs=$('shopTabs'),grid=$('shopGrid');tabs.replaceChildren();grid.replaceChildren();['Visas','Ieroči','Bruņas','Rotas'].forEach(category=>{const b=document.createElement('button');b.textContent=category;b.type='button';b.setAttribute('aria-selected',String(category===shopCategory));b.onclick=()=>{shopCategory=category;renderShop()};tabs.append(b)});shopItems.filter(item=>shopCategory==='Visas'||item[0]===shopCategory).forEach(item=>{const b=document.createElement('button');b.type='button';b.className='shopItem';const icon=document.createElement('span');icon.className='shopItemIcon';icon.textContent=item[1];const name=document.createElement('span');name.className='shopItemName';name.textContent=item[2];const stat=document.createElement('span');stat.className='shopItemStat';stat.textContent='Bonuss: +'+item[3];const price=document.createElement('span');price.className='shopItemPrice';price.textContent='🪙 '+item[4]+' zelts';b.append(icon,name,stat,price);b.onclick=()=>{const details=$('shopDetails');details.replaceChildren();const title=document.createElement('h3');title.textContent=item[1]+' '+item[2];const p=document.createElement('p');p.textContent='Kategorija: '+item[0]+' · Bonuss: +'+item[3]+' · Cena: '+item[4]+' zelts';const note=document.createElement('p');note.textContent='Šī ir nākotnes veikala manta. Pirkumi vēl nav aktivizēti, lai nepazaudētu zeltu vai priekšmetus.';const buy=document.createElement('button');buy.className='shopBuy';buy.disabled=true;buy.textContent='🪙 Pirkt (drīzumā)';details.append(title,p,note,buy)};grid.append(b)})}
 function showShop(){if(!user)return;close();shopCategory='Visas';renderShop();$('shopDetails').textContent='Izvēlies mantu, lai apskatītu tās īpašības.';$('shopBackdrop').classList.add('open')}
 $('shopClose').onclick=close;$('shopBackdrop').onclick=e=>{if(e.target===$('shopBackdrop'))close()};
-const shopZones=[[.258,.209],[.428,.209],[.599,.209],[.769,.209],[.258,.429],[.428,.429],[.599,.429],[.769,.429],[.258,.647],[.428,.647],[.599,.647],[.769,.647]];
-const shopTabZones=[[.246,.131,.117,.062],[.37,.131,.129,.062],[.51,.131,.143,.062],[.663,.131,.141,.062]];
-function renderIllustratedShop(){const tabs=$('shopTabs'),grid=$('shopGrid');tabs.replaceChildren();grid.replaceChildren();['Visas','Ieroči','Bruņas','Rotas'].forEach((category,i)=>{const b=document.createElement('button');b.type='button';b.textContent=category;b.title=category;b.setAttribute('aria-label',category);b.setAttribute('aria-selected',String(category===shopCategory));const [x,y,w,height]=shopTabZones[i];Object.assign(b.style,{left:(x*100)+'%',top:(y*100)+'%',width:(w*100)+'%',height:(height*100)+'%'});b.onclick=()=>{shopCategory=category;renderIllustratedShop()};tabs.append(b)});shopItems.forEach((item,i)=>{const b=document.createElement('button');b.type='button';b.textContent=item[2];b.title=item[2];b.setAttribute('aria-label',item[2]);const [x,y]=shopZones[i];Object.assign(b.style,{left:(x*100)+'%',top:(y*100)+'%',width:'15.8%',height:'20.5%'});b.hidden=shopCategory!=='Visas'&&item[0]!==shopCategory;b.onclick=()=>{grid.querySelectorAll('button').forEach(el=>el.removeAttribute('aria-selected'));b.setAttribute('aria-selected','true');const d=$('shopDetails');d.replaceChildren();const info=document.createElement('span');info.textContent=item[2]+' · '+item[0]+' · Bonuss: +'+item[3]+' · Cena: '+item[4]+' zelts. Pirkšana vēl nav pieejama.';const close=document.createElement('button');close.type='button';close.textContent='🏰 Atgriezties pilsētā';close.onclick=closeShop;d.append(info,close)};grid.append(b)})}
+const shopCategories=[
+['Ieroči',.268,.184,.15,.207],['Bruņas',.435,.184,.15,.207],['Ķiveres',.601,.184,.15,.207],['Vairogi',.768,.184,.15,.207],
+['Cimdi',.281,.417,.198,.204],['Zābaki',.493,.417,.198,.204],['Gredzeni',.705,.417,.198,.204],
+['Kuloni',.295,.637,.258,.189],['Artefakti',.604,.637,.258,.189]];
+const shopCatalog={
+'Ieroči':[['⚔️','Ceļinieka zobens',8,80],['🪓','Dzelzs cirvis',11,125],['🗡️','Ēnu duncis',6,60]],
+'Bruņas':[['🛡️','Karavīra bruņas',12,200]],
+'Ķiveres':[['🪖','Dzelzs ķivere',5,75]],
+'Vairogi':[['🛡️','Sarga vairogs',7,110]],
+'Cimdi':[['🧤','Ādas cimdi',3,45]],
+'Zābaki':[['🥾','Ceļinieka zābaki',4,55]],
+'Gredzeni':[['💍','Vara gredzens',2,90]],
+'Kuloni':[['📿','Aizsardzības kulons',4,160]],
+'Artefakti':[['💎','Sena artefakta šķemba',5,300]]};
+function shopFooterMessage(message,withBack=false){const d=$('shopDetails');d.replaceChildren();const t=document.createElement('span');t.textContent=message;d.append(t);if(withBack){const b=document.createElement('button');b.type='button';b.textContent='↩ Atpakaļ uz kategorijām';b.onclick=renderIllustratedShop;d.append(b)}}
+function renderIllustratedShop(){shopCategory='';$('shopBackdrop').classList.remove('shopBrowsing');const tabs=$('shopTabs'),grid=$('shopGrid');tabs.replaceChildren();grid.replaceChildren();shopCategories.forEach(([name,x,y,w,height])=>{const b=document.createElement('button');b.type='button';b.textContent=name;b.title=name;b.setAttribute('aria-label','Atvērt kategoriju '+name);Object.assign(b.style,{left:x*100+'%',top:y*100+'%',width:w*100+'%',height:height*100+'%'});b.onclick=()=>openShopCategory(name);tabs.append(b)});shopFooterMessage('Izvēlies kategoriju, lai apskatītu pieejamās mantas.')}
+function openShopCategory(name){shopCategory=name;$('shopBackdrop').classList.add('shopBrowsing');const grid=$('shopGrid');grid.replaceChildren();const wrap=document.createElement('div');wrap.className='shopCategoryView';const header=document.createElement('div');header.className='shopCategoryHeader';const back=document.createElement('button');back.type='button';back.textContent='← Kategorijas';back.onclick=renderIllustratedShop;const title=document.createElement('h2');title.textContent=name;header.append(back,title);const cards=document.createElement('div');cards.className='shopCategoryCards';const items=shopCatalog[name]||[];items.forEach(([icon,itemName,bonus,price])=>{const b=document.createElement('button');b.type='button';b.className='shopCategoryCard';const art=document.createElement('span');art.className='shopCategoryIcon';art.textContent=icon;const n=document.createElement('strong');n.textContent=itemName;const stat=document.createElement('span');stat.textContent='Bonuss: +'+bonus;const cost=document.createElement('b');cost.textContent='🪙 '+price+' zelts';b.append(art,n,stat,cost);b.onclick=()=>{cards.querySelectorAll('button').forEach(el=>el.removeAttribute('aria-selected'));b.setAttribute('aria-selected','true');shopFooterMessage(itemName+' · Bonuss: +'+bonus+' · Cena: '+price+' zelts. Pirkšana vēl nav pieejama.',true)};cards.append(b)});const hint=document.createElement('p');hint.className='shopCategoryHint';hint.textContent='Šeit vēlāk pievienosim vēl daudz '+name.toLowerCase()+' priekšmetu.';wrap.append(header,cards,hint);grid.append(wrap);shopFooterMessage('Kategorija: '+name+' · Izvēlies mantu, lai apskatītu tās īpašības.',true)}
 function closeShop(){close()}
-function showIllustratedShop(){if(!user)return;close();shopCategory='Visas';renderIllustratedShop();const d=$('shopDetails');d.replaceChildren();const t=document.createElement('span');t.textContent='Izvēlies mantu, lai apskatītu tās īpašības.';const b=document.createElement('button');b.type='button';b.textContent='🏰 Atgriezties pilsētā';b.onclick=closeShop;d.append(t,b);$('shopBackdrop').classList.add('open')}
+function showIllustratedShop(){if(!user)return;close();renderIllustratedShop();$('shopBackdrop').classList.add('open')}
 $('shopClose').onclick=closeShop;
 let battle=null;
 const battleZones=['galva','krūtis','vēders','jostasvieta','kājas'];
