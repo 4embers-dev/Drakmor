@@ -174,6 +174,25 @@
 .tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.6%}
 .tacticalChoice{height:5.35%!important}
 @media(max-width:650px){.tacticalItemLabel{font-size:clamp(6px,1.25vw,10px)}.tacticalItemIcon{font-size:clamp(7px,1.8vw,12px)}.tacticalSelectionSymbol{border-width:1px}}
+</style><style>
+/* Restore original illustrated rows; only correct prepainted checks and alignment. */
+.tacticalChoice.tacticalAttackChoice,.tacticalChoice.tacticalBlockChoice{background:transparent!important;border:0!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important;padding:0!important;overflow:visible!important}
+.tacticalChoice .tacticalSelectionSymbol,.tacticalChoice .tacticalItemIcon,.tacticalChoice .tacticalItemLabel{display:none!important}
+.tacticalChoice::before{content:""!important;display:block!important;position:absolute;left:6.8%;top:22%;width:10%;height:55%;border:2px solid #b98b39;border-radius:50%;background:#130b0a;box-shadow:0 0 0 2px #170a08;box-sizing:border-box;z-index:5}
+.tacticalBlockChoice::before{border-radius:4px;background:#07131c}
+.tacticalAttackChoice[aria-checked="true"]::before{background:radial-gradient(circle,#ffe76c 0 30%,#f65b0a 39% 62%,#3b0a07 74%);box-shadow:0 0 8px #fa5d17}
+.tacticalBlockChoice[aria-pressed="true"]::before{background:#15342e;border-color:#ffd76e;box-shadow:0 0 7px #ffca3b}
+.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓"!important;display:grid!important;position:absolute;left:6.8%;top:20%;width:10%;height:58%;place-items:center;color:#ffd14a;font:bold clamp(10px,1.7vw,24px) Arial;text-shadow:0 0 6px #fa9;z-index:6}
+.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{background:transparent!important;backdrop-filter:none!important;border:0!important;box-shadow:none!important}
+.tacticalAttackChoice[data-hit="0"]{isolation:isolate}
+.tacticalAttackChoice[data-hit="0"]::after{content:""!important;display:block!important;position:absolute;inset:0;border-radius:999px;background:#290b09e8;z-index:-1;box-shadow:inset 0 0 3px #a96628}
+.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::after{background:#8b1714ba;box-shadow:inset 0 0 9px #ff4d20}
+.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.7%}
+.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.7%}
+.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.7%}
+.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
+.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
+.tacticalChoice{height:5.35%!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
