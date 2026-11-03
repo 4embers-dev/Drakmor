@@ -533,7 +533,22 @@
 #shopBackdrop .modernDetails button{background:linear-gradient(#2e962d,#126017 55%,#0a3e10);border:3px ridge #f4c86a;box-shadow:inset 0 0 12px #b7f36b44,0 0 10px #7eac1c55}
 #shopBackdrop .modernPager button,#shopBackdrop .modernClose{border:2px ridge #d29b49;background:linear-gradient(#5c2d11,#210c06);border-radius:7px}
 #shopBackdrop .modernStoreNote{font-size:14px;color:#e3b86e}
-@media(max-width:730px){#shopBackdrop .modernStore{padding:13px}#shopBackdrop .modernLayout{grid-template-columns:1fr}#shopBackdrop .modernDetails{min-height:0}#shopBackdrop .modernItems{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
+@media(max-width:730px){#shopBackdrop .modernStore{padding:13px}#shopBackdrop .modernLayout{grid-template-columns:1fr}#shopBackdrop .modernDetails{min-height:0}#shopBackdrop .modernItems{grid-template-columns:repeat(2,minmax(0,1fr))}}/* Eldrik's illustrated three-column blacksmith storefront */
+#shopBackdrop .modernStore{width:min(1510px,98vw);background:linear-gradient(90deg,#170a06dc,#1d0b06e8),url('./drakmor-shop-categories.png') center/cover;border:5px ridge #d99935}
+#shopBackdrop .modernStoreHeader{background:linear-gradient(90deg,#3d1809d9,#1a0906dd);padding:13px 16px 19px;border:2px solid #a86a25;border-radius:10px}
+#shopBackdrop .modernStore h2{font-size:clamp(25px,3vw,43px)}
+#shopBackdrop .modernLayout{grid-template-columns:minmax(185px,250px) minmax(0,1fr) minmax(240px,300px);gap:14px;align-items:stretch}
+#shopBackdrop .modernSmith{position:relative;min-height:570px;border:3px ridge #d99b38;border-radius:10px;background-image:linear-gradient(to bottom,transparent 0%,transparent 58%,#1b0905 81%,#160905 100%),url('./drakmor-weapons-new.png');background-size:100% 100%, 600% 115%;background-position:center,0% center;background-repeat:no-repeat;box-shadow:inset 0 0 25px #000,0 0 18px #8c3e1c44;display:flex;flex-direction:column;justify-content:flex-end;padding:15px;color:#ffdf9a;text-align:center}
+#shopBackdrop .modernSmithTitle{background:linear-gradient(#7b310b,#2b0e07);border:3px ridge #ffbf58;border-radius:8px;padding:10px 3px;font-size:clamp(18px,2vw,25px);font-weight:bold;text-shadow:0 2px 3px #000}
+#shopBackdrop .modernSmith p{font-style:italic;font-size:15px;line-height:1.45;background:#170905d9;border:1px solid #8f5c25;padding:12px;border-radius:7px}
+#shopBackdrop .modernItems{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+#shopBackdrop .modernItem{aspect-ratio:1.32}
+#shopBackdrop .modernDetails{min-height:570px}
+#shopBackdrop .modernDetails:before{content:'⚔';display:block;text-align:center;color:#f9c668;font-size:38px;text-shadow:0 0 10px #a64a0a}
+#shopBackdrop .modernNav{background:#170906ba;border:1px solid #8f5c25;padding:8px;border-radius:9px}
+#shopBackdrop .modernNav button{padding:10px 11px}
+@media(max-width:1050px){#shopBackdrop .modernLayout{grid-template-columns:minmax(150px,210px) minmax(0,1fr)}#shopBackdrop .modernDetails{grid-column:2;min-height:260px}#shopBackdrop .modernSmith{grid-row:1/span 2;min-height:550px}}
+@media(max-width:700px){#shopBackdrop .modernLayout{grid-template-columns:1fr}#shopBackdrop .modernSmith{min-height:260px;background-size:100% 100%,350% 160%;background-position:center,0% 28%}#shopBackdrop .modernDetails{grid-column:auto;min-height:0}#shopBackdrop .modernItems{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
 <button class="hotspot" style="left:22%;top:31%;width:15%;height:10%" data-screen="Arēna" aria-label="Arēna"></button>
@@ -638,7 +653,7 @@ const close=document.createElement('button');close.className='modernClose';close
 head.append(title,wallet,close);root.append(head);
 const nav=document.createElement('nav');nav.className='modernNav';
 shopCategories.forEach(([name])=>{const b=document.createElement('button');b.textContent=name;b.className=name===category?'active':'';b.onclick=()=>renderModernShop(name,0);nav.append(b)});root.append(nav);
-const layout=document.createElement('div');layout.className='modernLayout';
+const layout=document.createElement('div');layout.className='modernLayout';const smith=document.createElement('aside');smith.className='modernSmith';const smithTitle=document.createElement('div');smithTitle.className='modernSmithTitle';smithTitle.textContent='⚒ Kalējs Eldriks';const smithQuote=document.createElement('p');smithQuote.textContent='“Katram varonim vajag uzticamu ekipējumu. Apskati manu piedāvājumu!”';smith.append(smithTitle,smithQuote);layout.append(smith);
 const left=document.createElement('div');const items=document.createElement('div');items.className='modernItems';
 const all=shopCatalog[category]||[];const pageItems=all.slice(page*6,page*6+6);
 pageItems.forEach(([icon,name,bonus,price,level=1],j)=>{
@@ -650,7 +665,7 @@ card.onclick=()=>{items.querySelectorAll('.modernItem').forEach(x=>x.classList.r
 left.append(items);
 const pager=document.createElement('div');pager.className='modernPager';const prev=document.createElement('button');prev.textContent='❮';prev.disabled=page===0;prev.onclick=()=>renderModernShop(category,page-1);const counter=document.createElement('span');counter.textContent=(page+1)+' / '+Math.max(1,Math.ceil(all.length/6));const next=document.createElement('button');next.textContent='❯';next.disabled=(page+1)*6>=all.length;next.onclick=()=>renderModernShop(category,page+1);pager.append(prev,counter,next);left.append(pager);
 const details=document.createElement('aside');details.id='modernDetails';details.className='modernDetails';layout.append(left,details);root.append(layout);
-const note=document.createElement('div');note.className='modernStoreNote';note.textContent='Pirkumi un inventārs tiek saglabāti tavā spēlētāja kontā.';root.append(note);
+const note=document.createElement('div');note.className='modernStoreNote';note.textContent='⚒ Kalējs Eldriks · Ieroči un ekipējums tavam piedzīvojumam';root.append(note);
 modernGold();modernDetails();modernRefresh()
 }
 function modernDetails(message=''){
