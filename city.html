@@ -184,6 +184,18 @@
 </style><style>
 /* Hide the leftover horizontal ornament from the old banner behind the new title. */
 .tacticalArtwork::before{left:27.0%!important;top:19.6%!important;width:47.1%!important;height:9.4%!important;background:linear-gradient(to bottom,#170907 0%,#170907 100%)!important;z-index:7!important}
+</style><style>
+/* Restore the dragon behind the removed old banner instead of painting a black stripe.
+   Clone the adjacent dragon background slightly higher to avoid the old decorative line. */
+.tacticalArtwork::before{
+ left:27.0%!important;top:19.6%!important;width:47.1%!important;height:9.4%!important;
+ background-image:url('./drakmor-battle-final.png')!important;
+ background-repeat:no-repeat!important;
+ background-size:212.314% 1063.83%!important;
+ background-position:51.04% 18.5%!important;
+ background-color:transparent!important;
+ z-index:7!important;
+}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
