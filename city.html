@@ -193,6 +193,23 @@
 .tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
 .tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
 .tacticalChoice{height:5.35%!important}
+</style><style>
+/* Final selection alignment: reuse circles and squares painted in the artwork.
+   Do not draw a second ring or square on top of them. */
+.tacticalChoice::before,.tacticalChoice::after{display:none!important;content:none!important}
+.tacticalChoice.tacticalAttackChoice,.tacticalChoice.tacticalBlockChoice{background:transparent!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important}
+.tacticalChoice.tacticalAttackChoice[aria-checked="true"]{box-shadow:inset 0 0 10px #e53b26!important}
+.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]{box-shadow:inset 0 0 8px #d9a741!important}
+.tacticalChoice[data-hit="0"]{background:#2d0b0b!important;border:1px solid #a45c20!important;border-radius:999px!important;isolation:auto!important}
+.tacticalChoice[data-hit="0"]::after{content:"◯  ♜  Sitiens pa galvu"!important;display:flex!important;align-items:center!important;position:absolute;inset:0;box-sizing:border-box;padding-left:6%;font:bold clamp(10px,1.3vw,20px) Georgia,serif;color:#ffe4ac;text-shadow:1px 1px 2px #000;background:#2b0b0b;border-radius:999px;z-index:8}
+.tacticalChoice[data-hit="0"][aria-checked="true"]::after{content:"🔘  ♜  Sitiens pa galvu"!important;background:#5b1010;box-shadow:inset 0 0 9px #ff542b}
+.tacticalChoice[data-hit="0"]:hover::after{border:1px solid #ffdb82}
+.tacticalChoice[data-hit="0"]{top:39.7%}
+.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.7%}
+.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.7%}
+.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
+.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
+.tacticalChoice{height:5.35%!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
