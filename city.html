@@ -239,6 +239,33 @@
  width:12%!important;height:70%!important;display:grid!important;place-items:center!important;
  line-height:1!important;margin:0!important;padding:0!important;
 }
+</style><style>
+/* Consistent centered selected markers for all five rows, no layout shifts. */
+.battleApproved .combatControlsImage .tacticalChoice{overflow:visible!important}
+.battleApproved .combatControlsImage .tacticalAttackChoice[aria-checked="true"]::before,
+.battleApproved .combatControlsImage .tacticalBlockChoice[aria-pressed="true"]::before{
+ content:""!important;display:block!important;position:absolute!important;
+ left:5.7%!important;top:50%!important;transform:translateY(-50%)!important;
+ width:8.4%!important;height:58%!important;box-sizing:border-box!important;
+ margin:0!important;padding:0!important;z-index:12!important;
+ border:2px solid #ffdc71!important;box-shadow:0 0 7px #ff9c25!important;
+ background:rgba(252,175,28,.18)!important;
+}
+.battleApproved .combatControlsImage .tacticalAttackChoice[aria-checked="true"]::before{
+ border-radius:50%!important;background:radial-gradient(circle,#ffe88d 0 24%,#ffb831 30% 42%,transparent 48%)!important;
+}
+.battleApproved .combatControlsImage .tacticalBlockChoice[aria-pressed="true"]::before{
+ border-radius:3px!important;
+ background:linear-gradient(135deg,transparent 40%,#ffe78c 40% 50%,transparent 50%) rgba(248,169,22,.17)!important;
+}
+.battleApproved .combatControlsImage .tacticalBlockChoice[aria-pressed="true"]::after{
+ content:"✓"!important;display:grid!important;place-items:center!important;
+ position:absolute!important;left:5.7%!important;top:50%!important;
+ transform:translateY(-50%)!important;width:8.4%!important;height:58%!important;
+ color:#ffe47b!important;font:bold clamp(10px,1.5vw,22px) Arial!important;
+ text-shadow:0 0 5px #ffa52d!important;z-index:13!important;
+}
+.battleApproved .combatControlsImage .tacticalBlockChoice[aria-pressed="false"]::after{content:none!important;display:none!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
