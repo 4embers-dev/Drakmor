@@ -107,22 +107,34 @@
 .battleGoblinBar{left:83.0%;top:15.4%;width:12.6%;height:2.6%;box-shadow:none;background:#37070a}
 .battleMessageMask{left:29%;top:70.2%;width:42%;height:4%;background:#100b08f5;padding:0 5px;box-sizing:border-box}
 </style><style>
-/* Approved tactical battle: exactly one hit and two defense choices. */
-.tacticalArtwork{aspect-ratio:1536/1024;background-image:url('./drakmor-battle-final.png')!important}
+/* Single source of truth for battle controls; artwork stays visible. */
+.tacticalArtwork{aspect-ratio:3/2;background-image:url('./drakmor-battle-final.png')!important}
 .tacticalHit,.tacticalBlocks{position:absolute;inset:0;pointer-events:none}
-.tacticalChoice{position:absolute;z-index:6;pointer-events:auto;border:0;border-radius:8px;background:transparent;cursor:pointer}
-.tacticalAttackChoice{left:27.8%;width:21.7%;height:5.75%}
-.tacticalBlockChoice{left:51.5%;width:20.8%;height:5.75%}
-.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.3%}
-.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:46.1%}
-.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:52.9%}
-.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:59.7%}
-.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:66.5%}
-.tacticalChoice:hover,.tacticalChoice:focus-visible{outline:2px solid #ffe6a4;outline-offset:-2px;background:#ffd0441b}
-.tacticalAttackChoice[aria-checked="true"]{box-shadow:inset 0 0 13px 3px #ff4124,0 0 9px #fa3d1e;background:#e72b191d}
-.tacticalBlockChoice[aria-pressed="true"]{box-shadow:inset 0 0 13px 2px #ffca42;background:#f6b52620}
+.tacticalChoice{position:absolute;z-index:6;pointer-events:auto;box-sizing:border-box;padding:0;border:0;outline:0;background:transparent;cursor:pointer;border-radius:999px;overflow:hidden}
+.tacticalAttackChoice{left:27.45%;width:21.95%}
+.tacticalBlockChoice{left:51.1%;width:21.3%}
+.tacticalChoice{height:5.2%}
+.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.65%}
+.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.65%}
+.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.65%}
+.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.65%}
+.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.65%}
+.tacticalChoice .tacticalSelectionSymbol,.tacticalChoice .tacticalItemIcon,.tacticalChoice .tacticalItemLabel{display:none}
+.tacticalChoice::before,.tacticalChoice::after{content:none}
+.tacticalChoice:hover,.tacticalChoice:focus-visible{outline:2px solid #f6cf7c;outline-offset:-3px;background:#e9a62c13}
+.tacticalAttackChoice[aria-checked="true"]{outline:2px solid #ffca5b;outline-offset:-3px;background:#e92e1820}
+.tacticalBlockChoice[aria-pressed="true"]{outline:2px solid #ffcb61;outline-offset:-3px;background:#2e8c9b26}
+/* Image already contains checked squares on rows 2 and 5: cover ONLY those painted marks. */
+.tacticalBlockChoice[data-block="1"]::before,.tacticalBlockChoice[data-block="4"]::before{content:"";display:block;position:absolute;left:5.8%;top:16%;width:11%;height:68%;background:#09121b;border:2px solid #b7802b;border-radius:4px;box-sizing:border-box;z-index:3}
+.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓";display:grid;place-items:center;position:absolute;left:5.8%;top:16%;width:11%;height:68%;background:#12332e;border:2px solid #f5ca57;border-radius:4px;box-sizing:border-box;color:#ffd962;font:bold clamp(9px,1.5vw,21px) Arial;z-index:4}
+/* The first attack row is pre-highlighted in the source image: cover the whole row with matching neutral styling. */
+.tacticalAttackChoice[data-hit="0"]{background:#310b0b;border:1px solid #a9672c;isolation:isolate}
+.tacticalAttackChoice[data-hit="0"]::before{content:"";display:block;position:absolute;inset:0;background:#310b0b;z-index:1}
+.tacticalAttackChoice[data-hit="0"]::after{content:"◯   🪖  Sitiens pa galvu";display:flex;align-items:center;position:absolute;inset:0;padding-left:6%;box-sizing:border-box;color:#ffe0a5;font:bold clamp(9px,1.25vw,20px) Georgia,serif;text-shadow:1px 1px 2px #000;z-index:2}
+.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::before{background:#691511}
+.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::after{content:"🔘   🪖  Sitiens pa galvu"}
 .tacticalStrike{position:absolute;left:35.1%;top:77.1%;width:29.5%;height:10.1%;z-index:7;background:transparent;border:0;border-radius:14px;cursor:pointer}
-.tacticalStrike:hover:not(:disabled),.tacticalStrike:focus-visible{outline:3px solid #ffe0a3;outline-offset:-4px;box-shadow:0 0 25px #ffbd3699}
+.tacticalStrike:hover:not(:disabled),.tacticalStrike:focus-visible{outline:2px solid #ffe0a3;outline-offset:-3px}
 .tacticalStrike:disabled{cursor:not-allowed;filter:grayscale(1);opacity:.6}
 .tacticalHeroHp,.tacticalGoblinHp{position:absolute;z-index:4;top:22.8%;width:11.8%;height:3.1%;display:grid;place-items:center;background:linear-gradient(#df3430,#89000a);border-radius:8px;color:#fff;font:bold clamp(10px,1.4vw,21px) Georgia,serif;text-shadow:1px 1px 3px #000}
 .tacticalHeroHp{left:12.8%}.tacticalGoblinHp{left:85.6%}
@@ -131,94 +143,6 @@
 .tacticalFooterButtons button{border:1px solid #d6a65c;border-radius:5px;background:linear-gradient(#4a2916,#1d1515);color:#ffe1a1;padding:9px 15px;font:bold 14px Georgia,serif;cursor:pointer}
 .tacticalFooter small{color:#bba78b}
 @media(max-width:650px){.tacticalHeroHp,.tacticalGoblinHp{font-size:9px}.tacticalFooter{font-size:12px}.tacticalFooterButtons button{font-size:11px;padding:7px}}
-</style><style>
-/* Neutralize selection marks painted into the background and draw real stateful controls. */
-.tacticalChoice::before{content:"";position:absolute;left:5.8%;top:17%;width:12%;height:65%;box-sizing:border-box;background:#140d0b;border:2px solid #bc8134;box-shadow:0 0 0 2px #170c08;border-radius:50%}
-.tacticalBlockChoice::before{border-radius:4px;background:#07121a;border-color:#bd842e}
-.tacticalAttackChoice[aria-checked="true"]::before{background:radial-gradient(circle,#ffec66 0 27%,#ff6a05 36% 55%,#6c1709 70%);border-color:#ffe27e;box-shadow:0 0 11px #ff4b15}
-.tacticalBlockChoice[aria-pressed="true"]::before{background:#24332b;border-color:#ffd85b;box-shadow:0 0 9px #e9b327}
-.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓";position:absolute;left:5.8%;top:10%;width:12%;height:75%;display:grid;place-items:center;color:#ffdd57;font:bold clamp(12px,2vw,28px) Arial,sans-serif;text-shadow:0 0 7px #ffb71e}
-.tacticalChoice[aria-checked="false"],.tacticalChoice[aria-pressed="false"]{box-shadow:none;background:transparent}
-</style><style>
-/* Tactical controls aligned to painted rows; initial first row neutralized. */
-.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.6%}
-.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.5%}
-.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.5%}
-.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.5%}
-.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.5%}
-.tacticalChoice{height:5.65%;overflow:visible}
-.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{backdrop-filter:grayscale(1) brightness(.62);background:#0b07076b;border:1px solid #b07836;box-shadow:inset 0 0 5px #160c0b}
-.tacticalAttackChoice[data-hit="0"][aria-checked="true"]{backdrop-filter:none}
-.tacticalChoice::before{top:17%;height:66%;width:11.5%;left:6.3%;z-index:1}
-.tacticalBlockChoice[aria-pressed="true"]::after{top:10%;left:6.3%;width:11.5%;height:75%;z-index:2}
-</style><style>
-/* Solid, consistent interactive rows fully cover prepainted artwork (including baked selections). */
-.tacticalChoice.tacticalAttackChoice,.tacticalChoice.tacticalBlockChoice{box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;gap:2%;padding:0 3%;border:1px solid #a76824;border-radius:999px;background:linear-gradient(180deg,#34100e 0%,#210807 55%,#120808 100%);box-shadow:inset 0 0 4px #000;backdrop-filter:none;color:#ffe3aa;text-align:left;overflow:hidden}
-.tacticalChoice.tacticalBlockChoice{background:linear-gradient(180deg,#111e2a 0%,#09131d 60%,#070b12 100%);border-color:#a77727}
-.tacticalChoice.tacticalAttackChoice[aria-checked="false"],.tacticalChoice.tacticalBlockChoice[aria-pressed="false"]{background:linear-gradient(180deg,#34100e,#170808);box-shadow:inset 0 0 4px #000;filter:none;backdrop-filter:none}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="false"]{background:linear-gradient(180deg,#111e2a,#070b12)}
-.tacticalChoice.tacticalAttackChoice[aria-checked="true"]{background:linear-gradient(180deg,#7b170f,#380707);border-color:#ffbe51;box-shadow:inset 0 0 10px #f33,0 0 7px #f32}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]{background:linear-gradient(180deg,#173b43,#091622);border-color:#ffd36d;box-shadow:inset 0 0 9px #bba43e}
-.tacticalChoice::before,.tacticalChoice::after{content:none!important;display:none!important}
-.tacticalSelectionSymbol{flex:0 0 9%;aspect-ratio:1;border:2px solid #c9953b;border-radius:50%;background:#100908;box-sizing:border-box;box-shadow:none}
-.tacticalBlockChoice .tacticalSelectionSymbol{border-radius:4px;background:#07131b}
-.tacticalAttackChoice[aria-checked="true"] .tacticalSelectionSymbol{background:radial-gradient(circle,#ffe780 0 33%,#fb640d 40% 62%,#350c08 75%);box-shadow:0 0 8px #fa6319}
-.tacticalBlockChoice[aria-pressed="true"] .tacticalSelectionSymbol{background:#173f38;position:relative}
-.tacticalBlockChoice[aria-pressed="true"] .tacticalSelectionSymbol::after{content:'✓';position:absolute;inset:-30%;display:grid;place-items:center;color:#ffda50;font:bold clamp(9px,1.5vw,24px) Arial}
-.tacticalItemIcon{flex:0 0 13%;text-align:center;color:#e9a72f;font:bold clamp(11px,1.8vw,28px) Georgia;text-shadow:0 0 4px #b85e10}
-.tacticalItemLabel{flex:1;white-space:nowrap;font:bold clamp(9px,1.25vw,20px) Georgia,serif;color:#ffe5ac;text-shadow:1px 1px 2px #000}
-.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.6%}
-.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.6%}
-.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.6%}
-.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.6%}
-.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.6%}
-.tacticalChoice{height:5.35%!important}
-@media(max-width:650px){.tacticalItemLabel{font-size:clamp(6px,1.25vw,10px)}.tacticalItemIcon{font-size:clamp(7px,1.8vw,12px)}.tacticalSelectionSymbol{border-width:1px}}
-</style><style>
-/* Restore original illustrated rows; only correct prepainted checks and alignment. */
-.tacticalChoice.tacticalAttackChoice,.tacticalChoice.tacticalBlockChoice{background:transparent!important;border:0!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important;padding:0!important;overflow:visible!important}
-.tacticalChoice .tacticalSelectionSymbol,.tacticalChoice .tacticalItemIcon,.tacticalChoice .tacticalItemLabel{display:none!important}
-.tacticalChoice::before{content:""!important;display:block!important;position:absolute;left:6.8%;top:22%;width:10%;height:55%;border:2px solid #b98b39;border-radius:50%;background:#130b0a;box-shadow:0 0 0 2px #170a08;box-sizing:border-box;z-index:5}
-.tacticalBlockChoice::before{border-radius:4px;background:#07131c}
-.tacticalAttackChoice[aria-checked="true"]::before{background:radial-gradient(circle,#ffe76c 0 30%,#f65b0a 39% 62%,#3b0a07 74%);box-shadow:0 0 8px #fa5d17}
-.tacticalBlockChoice[aria-pressed="true"]::before{background:#15342e;border-color:#ffd76e;box-shadow:0 0 7px #ffca3b}
-.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓"!important;display:grid!important;position:absolute;left:6.8%;top:20%;width:10%;height:58%;place-items:center;color:#ffd14a;font:bold clamp(10px,1.7vw,24px) Arial;text-shadow:0 0 6px #fa9;z-index:6}
-.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{background:transparent!important;backdrop-filter:none!important;border:0!important;box-shadow:none!important}
-.tacticalAttackChoice[data-hit="0"]{isolation:isolate}
-.tacticalAttackChoice[data-hit="0"]::after{content:""!important;display:block!important;position:absolute;inset:0;border-radius:999px;background:#290b09e8;z-index:-1;box-shadow:inset 0 0 3px #a96628}
-.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::after{background:#8b1714ba;box-shadow:inset 0 0 9px #ff4d20}
-.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.7%}
-.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.7%}
-.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.7%}
-.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
-.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
-.tacticalChoice{height:5.35%!important}
-</style><style>
-/* Final selection alignment: reuse circles and squares painted in the artwork.
-   Do not draw a second ring or square on top of them. */
-.tacticalChoice::before,.tacticalChoice::after{display:none!important;content:none!important}
-.tacticalChoice.tacticalAttackChoice,.tacticalChoice.tacticalBlockChoice{background:transparent!important;box-shadow:none!important;filter:none!important;backdrop-filter:none!important}
-.tacticalChoice.tacticalAttackChoice[aria-checked="true"]{box-shadow:inset 0 0 10px #e53b26!important}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]{box-shadow:inset 0 0 8px #d9a741!important}
-.tacticalChoice[data-hit="0"]{background:#2d0b0b!important;border:1px solid #a45c20!important;border-radius:999px!important;isolation:auto!important}
-.tacticalChoice[data-hit="0"]::after{content:"◯  ♜  Sitiens pa galvu"!important;display:flex!important;align-items:center!important;position:absolute;inset:0;box-sizing:border-box;padding-left:6%;font:bold clamp(10px,1.3vw,20px) Georgia,serif;color:#ffe4ac;text-shadow:1px 1px 2px #000;background:#2b0b0b;border-radius:999px;z-index:8}
-.tacticalChoice[data-hit="0"][aria-checked="true"]::after{content:"🔘  ♜  Sitiens pa galvu"!important;background:#5b1010;box-shadow:inset 0 0 9px #ff542b}
-.tacticalChoice[data-hit="0"]:hover::after{border:1px solid #ffdb82}
-.tacticalChoice[data-hit="0"]{top:39.7%}
-.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.7%}
-.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.7%}
-.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.7%}
-.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.7%}
-.tacticalChoice{height:5.35%!important}
-</style><style>
-/* Precise cover for baked-in checked boxes; show checks only for actual player choices. */
-.tacticalChoice.tacticalBlockChoice::before{content:""!important;display:block!important;position:absolute;left:5.7%;top:12%;width:13%;height:76%;border:2px solid #b98531;border-radius:4px;background:#07111b;box-sizing:border-box;z-index:10;box-shadow:0 0 0 3px #081019}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]::before{background:#102c29;border-color:#ffe078;box-shadow:0 0 8px #e7b83c}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="true"]::after{content:"✓"!important;display:grid!important;position:absolute;left:5.7%;top:10%;width:13%;height:80%;place-items:center;z-index:11;color:#ffdc5e;font:bold clamp(11px,1.6vw,25px) Arial;text-shadow:0 0 7px #f90}
-.tacticalChoice.tacticalBlockChoice[aria-pressed="false"]::after{content:none!important;display:none!important}
-.tacticalChoice.tacticalAttackChoice[data-hit="0"]::after{content:"◯  🪖  Sitiens pa galvu"!important;background:#2b0b0b!important;color:#ffe4ac!important}
-.tacticalChoice.tacticalAttackChoice[data-hit="0"][aria-checked="true"]::after{content:"🔘  🪖  Sitiens pa galvu"!important;background:#65100d!important}
-.tacticalChoice.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{box-shadow:none!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
