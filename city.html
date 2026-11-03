@@ -139,6 +139,18 @@
 .tacticalBlockChoice[aria-pressed="true"]::before{background:#24332b;border-color:#ffd85b;box-shadow:0 0 9px #e9b327}
 .tacticalBlockChoice[aria-pressed="true"]::after{content:"✓";position:absolute;left:5.8%;top:10%;width:12%;height:75%;display:grid;place-items:center;color:#ffdd57;font:bold clamp(12px,2vw,28px) Arial,sans-serif;text-shadow:0 0 7px #ffb71e}
 .tacticalChoice[aria-checked="false"],.tacticalChoice[aria-pressed="false"]{box-shadow:none;background:transparent}
+</style><style>
+/* Tactical controls aligned to painted rows; initial first row neutralized. */
+.tacticalChoice[data-hit="0"],.tacticalChoice[data-block="0"]{top:39.6%}
+.tacticalChoice[data-hit="1"],.tacticalChoice[data-block="1"]{top:45.5%}
+.tacticalChoice[data-hit="2"],.tacticalChoice[data-block="2"]{top:51.5%}
+.tacticalChoice[data-hit="3"],.tacticalChoice[data-block="3"]{top:57.5%}
+.tacticalChoice[data-hit="4"],.tacticalChoice[data-block="4"]{top:63.5%}
+.tacticalChoice{height:5.65%;overflow:visible}
+.tacticalAttackChoice[data-hit="0"][aria-checked="false"]{backdrop-filter:grayscale(1) brightness(.62);background:#0b07076b;border:1px solid #b07836;box-shadow:inset 0 0 5px #160c0b}
+.tacticalAttackChoice[data-hit="0"][aria-checked="true"]{backdrop-filter:none}
+.tacticalChoice::before{top:17%;height:66%;width:11.5%;left:6.3%;z-index:1}
+.tacticalBlockChoice[aria-pressed="true"]::after{top:10%;left:6.3%;width:11.5%;height:75%;z-index:2}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
