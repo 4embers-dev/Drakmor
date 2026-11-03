@@ -227,6 +227,18 @@
 .battleApproved .combatControlsImage~.tacticalStrike:hover:not(:disabled),.battleApproved .combatControlsImage~.tacticalStrike:focus-visible{outline:2px solid #ffe3a1!important;outline-offset:-5px!important}
 .battleApproved .tacticalHeroHp,.battleApproved .tacticalGoblinHp{top:24.1%!important;height:3.5%!important;width:11.5%!important;z-index:8!important;font-size:clamp(10px,1.3vw,21px)!important}
 .battleApproved .tacticalHeroHp{left:12.8%!important}.battleApproved .tacticalGoblinHp{left:86%!important}
+</style><style>
+/* Center selection marks on the circles/squares baked into the approved artwork. */
+.battleApproved .combatControlsImage .tacticalAttackChoice[aria-checked="true"]::before{
+ left:4.05%!important;top:50%!important;transform:translateY(-50%)!important;
+ width:12%!important;height:70%!important;display:grid!important;place-items:center!important;
+ line-height:1!important;margin:0!important;padding:0!important;
+}
+.battleApproved .combatControlsImage .tacticalBlockChoice[aria-pressed="true"]::before{
+ left:4.05%!important;top:50%!important;transform:translateY(-50%)!important;
+ width:12%!important;height:70%!important;display:grid!important;place-items:center!important;
+ line-height:1!important;margin:0!important;padding:0!important;
+}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
