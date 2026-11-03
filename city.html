@@ -100,6 +100,12 @@
 .battleResultActions{display:flex;align-items:center;justify-content:center;gap:14px;padding:6px 8px;background:#0b1019;color:#d9b98a;font-size:12px;flex-wrap:wrap}
 .battleResultActions button{border:1px solid #d6a75a;border-radius:5px;background:#302014;color:#ffe0a1;padding:6px 12px;cursor:pointer}
 @media(max-width:650px){.battleNameMask{font-size:9px}.battleMessageMask{font-size:9px}.battleBar span{font-size:9px}.battleResultActions{font-size:10px}}
+</style><style>
+/* Fix battle labels: align live HP with painted bars, remove duplicate hero name and message. */
+.battleNameMask{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.battleHeroBar{left:13.0%;top:14.8%;width:12.3%;height:2.6%;box-shadow:none;background:#37070a}
+.battleGoblinBar{left:83.0%;top:15.4%;width:12.6%;height:2.6%;box-shadow:none;background:#37070a}
+.battleMessageMask{left:29%;top:70.2%;width:42%;height:4%;background:#100b08f5;padding:0 5px;box-sizing:border-box}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
