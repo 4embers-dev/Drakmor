@@ -421,6 +421,39 @@
 .shopFooter{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;color:#d5b98b;font-size:13px}
 .shopClose{background:linear-gradient(#ffe3a0,#b87a2f);color:#261306}
 @media(max-width:700px){.shopPanel{padding:12px}.shopLayout{grid-template-columns:1fr}.shopKeeper{padding:9px}.shopKeeperArt{font-size:42px;margin:0}.shopGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.shopFooter{flex-wrap:wrap}}
+</style><style>
+/* Illustrated fantasy forge shop makeover. */
+.shopBackdrop{padding:0!important;background:radial-gradient(circle,#3e1c0d,#090506 85%)!important}
+.shopPanel{width:min(1540px,98vw)!important;max-height:98dvh!important;padding:22px!important;border:6px ridge #eeb34b!important;border-radius:8px!important;
+ background:radial-gradient(ellipse at 13% 38%,#9b3c0c77,transparent 32%),radial-gradient(ellipse at 87% 14%,#b95b1255,transparent 28%),repeating-linear-gradient(0deg,#1c100c 0 24px,#27140e 25px 27px,#170d0c 28px 51px)!important;
+ box-shadow:inset 0 0 65px #000,0 0 0 3px #4b230d,0 0 30px #f28d2640!important}
+.shopTitle{font-size:clamp(30px,4vw,55px)!important;background:linear-gradient(180deg,#5e0d0b,#200806)!important;border:3px ridge #e6a447!important;border-radius:16px;padding:7px 10px!important;
+ color:#ffe2a1!important;text-shadow:2px 3px #3a1208,0 0 9px #ff9e34!important}
+.shopIntro{font-size:clamp(13px,1.3vw,19px)!important;color:#ffe2b1!important}
+.shopLayout{grid-template-columns:minmax(200px,24%) minmax(0,1fr)!important;gap:18px!important}
+.shopKeeper{position:relative;min-height:620px!important;background:radial-gradient(ellipse at 45% 35%,#f6a01b80,transparent 40%),linear-gradient(115deg,#1c0d0b,#42200c 42%,#100c0c)!important;
+ border:4px ridge #efae50!important;box-shadow:inset 0 0 34px #000,0 0 18px #000!important;padding:18px!important}
+.shopKeeper::before{content:"⚒";display:block;font-size:clamp(65px,8vw,125px);line-height:1.1;text-shadow:0 0 20px #ff8c00,0 0 42px #f34b00;margin:8px 0 20px}
+.shopKeeperArt{font-size:clamp(85px,11vw,160px)!important;margin:18px auto!important}
+.shopKeeper strong{display:block;background:linear-gradient(#6c210e,#2b0b09);border:2px ridge #d99333;padding:10px 2px;font-size:clamp(20px,2vw,28px)!important;text-shadow:0 2px 3px #000}
+.shopKeeper p{font-size:clamp(14px,1.2vw,19px)!important}
+.shopTabs{justify-content:center!important;margin:0 0 16px!important;gap:10px!important}
+.shopTabs button{flex:1 1 135px!important;font-size:clamp(16px,1.5vw,23px)!important;padding:11px 12px!important;border:3px ridge #db9d40!important;
+ background:linear-gradient(180deg,#3d130a,#0d090c)!important;color:#ffe0a4!important;text-shadow:0 2px 2px #000!important}
+.shopTabs button[aria-selected=true]{background:linear-gradient(180deg,#ffb34c,#9b3b0c 65%,#4e1809)!important;color:#fff0b5!important;box-shadow:0 0 17px #ff9c3e88!important}
+.shopGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}
+.shopItem{min-height:195px!important;padding:10px 7px!important;gap:5px!important;border:4px ridge #d99a40!important;border-radius:10px!important;
+ background:radial-gradient(ellipse at center,#5a160f,#270b0b 72%,#10080a)!important;box-shadow:inset 0 0 17px #000,0 3px 8px #000!important}
+.shopItem:hover,.shopItem:focus-visible{background:radial-gradient(ellipse at center,#813018,#300b0b 75%)!important;box-shadow:0 0 17px #ffb13a!important}
+.shopItemIcon{font-size:clamp(36px,4.5vw,68px)!important;filter:drop-shadow(0 0 9px #e79028)!important}
+.shopItemName{font-size:clamp(13px,1.35vw,20px)!important;text-shadow:0 2px 3px #000}
+.shopItemStat{font-size:clamp(11px,1vw,15px)!important;color:#ffe3b2!important}
+.shopItemPrice{font-size:clamp(13px,1.3vw,19px)!important;color:#ffca50!important}
+.shopDetails{background:linear-gradient(90deg,#250d0b,#0b090a,#270f0b)!important;border:3px ridge #d69c42!important;font-size:16px!important}
+.shopFooter{background:#120a09c9;padding:9px;border-top:2px solid #b97828}
+.shopClose{border:3px ridge #e4a044!important}
+@media(max-width:900px){.shopLayout{grid-template-columns:1fr!important}.shopKeeper{min-height:0!important;padding:9px!important}.shopKeeper::before{display:none!important}.shopKeeperArt{font-size:55px!important;margin:0!important}.shopGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:580px){.shopGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.shopItem{min-height:155px!important}.shopPanel{padding:9px!important}.shopTabs button{flex-basis:90px!important}}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
