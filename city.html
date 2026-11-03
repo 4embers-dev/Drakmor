@@ -580,7 +580,7 @@ const back=document.createElement('button');back.type='button';back.className='s
 shopCatalog['Ieroči'].forEach(([icon,name,bonus,price,level],i)=>{
 const btn=document.createElement('button');btn.type='button';btn.className='shopWeaponHotspot';btn.setAttribute('aria-label',name+', '+level+'. līmenis, spēks +'+bonus+', '+price+' zelts');
 const col=i%5,row=Math.floor(i/5);
-Object.assign(btn.style,{left:(19.55+col*13.68)+'%',top:(26.3+row*14.65)+'%',width:'12.65%',height:'13.85%'});
+Object.assign(btn.style,{left:(20.65+col*15.25)+'%',top:(21.55+row*16.30)+'%',width:'14.35%',height:'15.25%'});
 btn.onclick=()=>{grid.querySelectorAll('.shopWeaponHotspot').forEach(el=>el.removeAttribute('aria-selected'));btn.setAttribute('aria-selected','true');shopFooterMessage(name+' · Nepieciešamais līmenis: '+level+' · Spēks: +'+bonus+' · Cena: '+price+' zelts. Pirkšana vēl nav pieejama.',true)};
 grid.append(btn)});
 shopFooterMessage('Ieroči: 20 priekšmeti · Izvēlies ieroci, lai apskatītu īpašības.',true)
