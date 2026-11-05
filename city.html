@@ -584,7 +584,7 @@
 /* Wallet inset: keep the live number and its cover strictly inside the illustrated gold plaque. */
 #shopBackdrop.shopV2 #drakmorShopV2.v2IllustratedCategories .v2ArtGold{left:85.8%!important;top:10.3%!important;width:8.4%!important;height:3.6%!important;overflow:hidden!important;box-sizing:border-box!important;border-radius:2px!important;background:#1c0804!important;font-size:clamp(9px,1.3vw,21px)!important}
 #shopBackdrop.shopV2 #drakmorShopV2.v2IllustratedCategories .v2ArtGold:before{display:none!important;content:none!important}
-</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
+#drakmorShopV2 .v2ShopShell{display:grid;grid-template-columns:170px minmax(0,1fr) 245px;gap:12px}#drakmorShopV2 .v2Sidebar{display:flex;flex-direction:column;gap:7px;padding:9px;background:linear-gradient(#421b0a,#180905);border:2px ridge #bc8135;border-radius:9px}#drakmorShopV2 .v2Sidebar h3{margin:4px 0 10px;font-size:18px;color:#ffce72}#drakmorShopV2 .v2NavItem{background:linear-gradient(#57200c,#210b04);border:2px ridge #a87931;border-radius:5px;text-align:left;padding:9px;font-size:15px}#drakmorShopV2 .v2NavItem:hover,#drakmorShopV2 .v2NavItem.isActive{background:#79330e;border-color:#ffda72}#drakmorShopV2 .v2Tools{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}#drakmorShopV2 .v2Search,#drakmorShopV2 .v2Select{min-width:0;flex:1;background:#1d0b05;color:#ffe3a1;border:2px ridge #bd873a;border-radius:5px;padding:9px;font:14px Georgia,serif}#drakmorShopV2 .v2Select{flex:0 1 125px}#drakmorShopV2 .v2Center .v2Items{grid-template-columns:repeat(3,minmax(0,1fr))}#drakmorShopV2 .v2Center .v2Item{min-height:145px}#drakmorShopV2 .v2RarityTag{color:#f0c88e;font-size:11px}#drakmorShopV2 .v2TierReta{border-color:#3d91da}#drakmorShopV2 .v2TierEpiska{border-color:#a85bdd}#drakmorShopV2 .v2TierLeģendāra{border-color:#f6b638}#drakmorShopV2 .v2Empty{grid-column:1/-1;text-align:center;padding:30px}@media(max-width:950px){#drakmorShopV2 .v2ShopShell{grid-template-columns:125px minmax(0,1fr)}#drakmorShopV2 .v2ShopShell .v2Details{grid-column:1/-1}#drakmorShopV2 .v2Center .v2Items{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){#drakmorShopV2 .v2ShopShell{grid-template-columns:1fr}#drakmorShopV2 .v2Sidebar{display:grid;grid-template-columns:repeat(3,1fr)}#drakmorShopV2 .v2Sidebar h3{grid-column:1/-1}#drakmorShopV2 .v2NavItem{font-size:12px;padding:6px}#drakmorShopV2 .v2ShopShell .v2Details{grid-column:1}#drakmorShopV2 .v2Center .v2Items{grid-template-columns:repeat(2,minmax(0,1fr))}}</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
 <button class="hotspot" style="left:22%;top:31%;width:15%;height:10%" data-screen="Arēna" aria-label="Arēna"></button>
@@ -736,7 +736,8 @@ const v2Catalog=Object.fromEntries(Object.keys(v2Names).map(category=>[category,
 const old=category==='Ieroči'&&i<20?shopCatalog['Ieroči'][i]:null;
 return {category,id:category+'-'+(i+1),name:old?old[1]:v2Ranks[Math.floor(i/5)]+' '+v2Names[category][i%5],bonus:old?old[2]:Math.max(1,Math.floor((i+1)*1.7)),price:old?old[3]:Math.round(35+(i+1)*(i+1)*9),level:old?old[4]:i+1,icon:v2Icons[category],purchasable:!!old};
 })]));
-let v2Category=null,v2Page=0,v2Selected=null;
+let v2Category=null,v2Page=0,v2Selected=null,v2Query='',v2Rarity='Visi',v2Sort='level';
+function v2Tier(item){return item.level>=41?'Leģendāra':item.level>=31?'Episka':item.level>=21?'Reta':item.level>=11?'Neparasta':'Parasta'}
 function v2ShopRoot(){let root=$('drakmorShopV2');if(!root){root=document.createElement('div');root.id='drakmorShopV2';$('shopBackdrop').append(root)}return root}
 function v2Node(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
 function v2Wallet(){const gold=shopState?.gold==null?'—':shopState.gold;const e=$('v2Wallet');if(e)e.textContent='🪙 Tavs zelts: '+gold+' zelts';const art=$('v2ArtGold');if(art)art.textContent=gold+' zelts'}
@@ -759,20 +760,29 @@ if(!category){
 const welcome=v2Node('div','v2Welcome','Izvēlies mantu kategoriju');root.append(welcome);
 const categories=v2Node('div','v2Categories');Object.keys(v2Names).forEach(name=>{const b=v2Node('button','v2Category',v2Icons[name]+'\n'+name);const small=v2Node('small','', '50 mantas');b.append(small);b.onclick=()=>v2Render(name);categories.append(b)});root.append(categories);
 }else{
-const top=v2Node('div','v2Top');const back=v2Node('button','v2Back','← Visas kategorijas');back.onclick=()=>v2Render();top.append(back,v2Node('h3','',v2Icons[category]+' '+category),v2Node('span','', '50 mantas'));root.append(top);
-const layout=v2Node('div','v2Layout'),items=v2Node('div','v2Items'),details=v2Node('aside','v2Details');details.id='v2Details';
-v2Catalog[category].slice(page*10,page*10+10).forEach(item=>{
-const b=v2Node('button','v2Item');b.append(v2Node('span','v2ItemIcon',item.icon),v2Node('strong','',item.name),v2Node('span','', 'Lv. '+item.level+' · +'+item.bonus),v2Node('b','',item.price+' 🪙'));
-b.onclick=()=>{items.querySelectorAll('.v2Item').forEach(el=>el.classList.remove('selected'));b.classList.add('selected');v2Selected=item;v2Details()};items.append(b)});
-const pager=v2Node('div','v2Pager');const prev=v2Node('button','','← Iepriekšējā');prev.disabled=page===0;prev.onclick=()=>v2Render(category,page-1);const next=v2Node('button','','Nākamā →');next.disabled=page===4;next.onclick=()=>v2Render(category,page+1);pager.append(prev,v2Node('span','',(page+1)+' / 5'),next);
-const left=v2Node('div','');left.append(items,pager);layout.append(left,details);root.append(layout);v2Details();
+const top=v2Node('div','v2Top');const back=v2Node('button','v2Back','← Kategorijas');back.onclick=()=>{v2Query='';v2Rarity='Visi';v2Render()};top.append(back,v2Node('h3','',v2Icons[category]+' '+category),v2Node('span','','50 mantas'));root.append(top);
+const shell=v2Node('div','v2ShopShell');const nav=v2Node('nav','v2Sidebar');nav.append(v2Node('h3','','⚒ Kalējs Eldriks'));Object.keys(v2Names).forEach(name=>{const b=v2Node('button','v2NavItem'+(name===category?' isActive':''),v2Icons[name]+' '+name);b.onclick=()=>{v2Query='';v2Rarity='Visi';v2Render(name)};nav.append(b)});shell.append(nav);
+const center=v2Node('section','v2Center');const tools=v2Node('div','v2Tools');
+const search=v2Node('input','v2Search');search.placeholder='Meklēt mantu...';search.value=v2Query;search.setAttribute('aria-label','Meklēt mantu');tools.append(search);
+const rarity=v2Node('select','v2Select');['Visi','Parasta','Neparasta','Reta','Episka','Leģendāra'].forEach(x=>{const o=v2Node('option','',x);o.value=x;rarity.append(o)});rarity.value=v2Rarity;tools.append(rarity);
+const sort=v2Node('select','v2Select');[['level','Pēc līmeņa'],['price','Lētākās'],['priceDesc','Dārgākās'],['name','Pēc nosaukuma']].forEach(([value,label])=>{const o=v2Node('option','',label);o.value=value;sort.append(o)});sort.value=v2Sort;tools.append(sort);center.append(tools);
+const items=v2Node('div','v2Items'),pager=v2Node('div','v2Pager');center.append(items,pager);shell.append(center);
+const details=v2Node('aside','v2Details');details.id='v2Details';shell.append(details);root.append(shell);
+function paint(){
+const found=v2Catalog[category].filter(item=>(!v2Query||item.name.toLocaleLowerCase('lv').includes(v2Query.toLocaleLowerCase('lv')))&&(v2Rarity==='Visi'||v2Tier(item)===v2Rarity)).sort((a,b)=>v2Sort==='price'?a.price-b.price:v2Sort==='priceDesc'?b.price-a.price:v2Sort==='name'?a.name.localeCompare(b.name,'lv'):a.level-b.level);
+const pages=Math.max(1,Math.ceil(found.length/10));v2Page=Math.min(v2Page,pages-1);items.replaceChildren();pager.replaceChildren();
+found.slice(v2Page*10,v2Page*10+10).forEach(item=>{const b=v2Node('button','v2Item v2Tier'+v2Tier(item));b.append(v2Node('span','v2ItemIcon',item.icon),v2Node('small','v2RarityTag',v2Tier(item)),v2Node('strong','',item.name),v2Node('span','','Lv. '+item.level+' · +'+item.bonus),v2Node('b','',item.price+' 🪙'));b.onclick=()=>{items.querySelectorAll('.v2Item').forEach(el=>el.classList.remove('selected'));b.classList.add('selected');v2Selected=item;v2Details()};items.append(b)});
+if(!found.length)items.append(v2Node('p','v2Empty','Neviena manta neatbilst filtriem.'));
+const prev=v2Node('button','','←');prev.disabled=v2Page===0;prev.onclick=()=>{v2Page--;paint()};const next=v2Node('button','','→');next.disabled=v2Page>=pages-1;next.onclick=()=>{v2Page++;paint()};pager.append(prev,v2Node('span','',(v2Page+1)+' / '+pages+' · '+found.length+' mantas'),next);
+}
+search.oninput=()=>{v2Query=search.value;v2Page=0;paint()};rarity.onchange=()=>{v2Rarity=rarity.value;v2Page=0;paint()};sort.onchange=()=>{v2Sort=sort.value;v2Page=0;paint()};paint();v2Details();
 }
 v2Wallet();refreshShopState().then(()=>{v2Wallet();if(v2Selected)v2Details()});
 }
 function v2Details(message=''){
 const d=$('v2Details');if(!d)return;d.replaceChildren();
 if(!v2Selected){d.append(v2Node('h3','','Izvēlies mantu'),v2Node('p','','Nospied uz mantas, lai apskatītu tās īpašības un cenu.'));return}
-const item=v2Selected;d.append(v2Node('div','v2DetailIcon',item.icon),v2Node('h3','',item.name),v2Node('p','','Nepieciešamais līmenis: '+item.level),v2Node('p','','Bonuss: +'+item.bonus),v2Node('p','','Cena: '+item.price+' zelts'));
+const item=v2Selected;d.append(v2Node('div','v2DetailIcon',item.icon),v2Node('h3','',item.name),v2Node('p','','Retums: '+v2Tier(item)),v2Node('p','','Nepieciešamais līmenis: '+item.level),v2Node('p','','Bonuss: +'+item.bonus),v2Node('p','','Cena: '+item.price+' zelts'));
 if(message)d.append(v2Node('p','v2Message',message));
 if(!item.purchasable){d.append(v2Node('p','v2Soon','Šai mantai pirkšana vēl nav aktivizēta.'));return}
 const owned=shopState?.owned?.includes(item.name);
