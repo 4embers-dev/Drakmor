@@ -17,3 +17,12 @@ jobs:
           node-version: '22'
       - run: node --check assets/shop-v5.js
       - run: node tests/shop-v5-smoke.cjs
+      - name: Package offline preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: drakmor-shop-v5-preview
+          path: |
+            tests/shop-v5-preview.html
+            assets/shop-v5.js
+            assets/shop-v5.css
+          retention-days: 14
