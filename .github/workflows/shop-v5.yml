@@ -1,0 +1,28 @@
+name: Shop v5 checks
+on:
+  push:
+    branches: [feature/shop-rebuild-clean-5]
+  pull_request:
+    paths:
+      - 'assets/shop-v5.js'
+      - 'tests/shop-v5-smoke.cjs'
+      - '.github/workflows/shop-v5.yml'
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/shop-v5.js
+      - run: node tests/shop-v5-smoke.cjs
+      - name: Package offline preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: drakmor-shop-v5-preview
+          path: |
+            tests/shop-v5-preview.html
+            assets/shop-v5.js
+            assets/shop-v5.css
+          retention-days: 14
