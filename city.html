@@ -880,8 +880,7 @@ function showIllustratedShop(){
  let mount=$('shopV5Mount');
  if(!mount){mount=document.createElement('div');mount.id='shopV5Mount';backdrop.append(mount)}
  if(activeShopV5){activeShopV5.destroy();activeShopV5=null}
- const catalog=shopCatalog['Ieroči'].slice(0,20).map(([icon,name,bonus,price,level])=>({category:'Ieroči',icon,name,bonus,price,level,purchasable:true}));
- activeShopV5=window.DrakmorShopV5.create({mount,db,catalog,onClose:close,onInventory:showInventory});
+ activeShopV5=window.DrakmorShopV5.create({mount,db,onClose:close,onInventory:showInventory});
 }
 $('shopClose').onclick=closeShop;
 let battle=null;
