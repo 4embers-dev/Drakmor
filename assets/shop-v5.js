@@ -11,11 +11,11 @@ function create({mount,db,onClose,onInventory,catalog=[]}={}){
  const inventory=typeof onInventory==='function'?onInventory:()=>{};
  const close=typeof onClose==='function'?onClose:()=>{mount.replaceChildren()};
  const root=el('div','shop');mount.replaceChildren(root);
- const safeItems=Array.isArray(catalog)?catalog.filter(x=>x&&x.category&&x.name&&Number.isFinite(Number(x.price))&&x.purchasable===true):[];
+ let safeItems=[];const normalizeItems=items=>Array.isArray(items)?items.filter(x=>x&&x.category&&x.name&&Number.isFinite(Number(x.price))&&x.purchasable===true).map(x=>({...x,price:Number(x.price),level:Number(x.level),bonus:Number(x.bonus)})):[];
  const button=(label,fn,cls)=>{const b=el('button',cls,label);b.type='button';b.onclick=fn;return b};
  async function load(){
-  try{const {data,error}=await db.rpc('drakmor_shop_state');if(error)throw error;state=data;notice='';}
-  catch(e){state=null;notice='Neizdevās ielādēt veikala datus: '+(e?.message||'Savienojuma kļūda')}
+  try{const [status,items]=await Promise.all([db.rpc('drakmor_shop_state'),db.rpc('drakmor_shop_catalog')]);if(status.error)throw status.error;if(items.error)throw items.error;state=status.data;safeItems=normalizeItems(items.data);notice='';}
+  catch(e){state=null;safeItems=[];notice='Neizdevās ielādēt veikala datus: '+(e?.message||'Savienojuma kļūda')+'. Pārbaudi, vai Supabase ir palaists shop_v5_catalog.sql.'}
   if(!destroyed)render();
  }
  function available(){return safeItems.filter(x=>x.category===category&&x.name.toLocaleLowerCase('lv').includes(query.toLocaleLowerCase('lv'))).sort((a,b)=>sort==='price'?a.price-b.price:sort==='priceDesc'?b.price-a.price:sort==='name'?a.name.localeCompare(b.name,'lv'):a.level-b.level)}
