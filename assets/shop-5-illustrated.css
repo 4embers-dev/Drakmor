@@ -1,0 +1,64 @@
+/* Drakmor 5.0 — illustrated, fully interactive shop (visual layer only). */
+#shopBackdrop.shopV2{padding:10px!important;background:#080507ee!important;align-items:center;justify-content:center;overflow:auto}
+#shopBackdrop.shopV2 #drakmorShopV2:not(.v2IllustratedCategories){
+ box-sizing:border-box;width:min(98vw,1740px)!important;max-width:1740px!important;max-height:97dvh;overflow-y:auto;
+ padding:12px 15px 14px!important;border:5px ridge #f1b23f!important;border-radius:15px!important;
+ background:linear-gradient(115deg,#140c0bea,#100a0cef),radial-gradient(ellipse at 65% 5%,#8e371c,#23100a 67%,#080605)!important;
+ box-shadow:0 0 0 3px #4e1808,0 0 0 6px #a9651c,0 14px 65px #000,inset 0 0 60px #9a431b6a!important;
+ color:#ffdfab;font-family:Georgia,serif;
+}
+#shopBackdrop.shopV2 .v2Head{position:relative!important;min-height:136px;display:grid!important;grid-template-columns:minmax(195px,25%) 1fr minmax(190px,20%) 45px;align-items:center;gap:12px;margin:0 0 8px!important;padding:10px 12px!important;background:linear-gradient(90deg,#1b0909dd,#5b0b0a 45%,#230a09dc),url('./drakmor-shop-categories.png') center 44%/cover!important;border:3px ridge #d79c40!important;border-radius:10px!important;box-shadow:inset 0 0 35px #000a,0 5px 18px #000!important}
+#shopBackdrop.shopV2 .v2Merchant{align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;border:2px ridge #ba7c36;border-radius:10px;background:radial-gradient(circle at 50% 22%,#d57924a1,transparent 56%),linear-gradient(#24100cdd,#090606e8);font-size:15px;font-weight:bold;color:#ffe3a6;text-shadow:0 2px 3px #000;overflow:hidden}
+#shopBackdrop.shopV2 .v2Merchant::before{content:'⚒';font-size:clamp(46px,5.5vw,81px);line-height:1;color:#ffdf91;text-shadow:0 0 9px #f80,0 0 32px #f60}
+#shopBackdrop.shopV2 .v2Merchant::after{content:'Kalējs Eldriks';padding:4px 0 7px}
+#shopBackdrop.shopV2 .v2Head h2{margin:0!important;text-align:center;font:bold clamp(30px,3.65vw,65px) Georgia,serif!important;font-variant:small-caps;line-height:1.12;color:#ffe096!important;text-shadow:0 3px #4b0904,0 0 14px #fa8a1f!important;letter-spacing:1px}
+#shopBackdrop.shopV2 .v2Head h2::before{content:'🐉 Drakmor 5.0';display:block;font-size:.53em;letter-spacing:1px;color:#fff0bb}
+#shopBackdrop.shopV2 .v2Wallet{margin:0!important;padding:14px 8px!important;text-align:center;white-space:normal;border:2px ridge #ffc65e!important;background:linear-gradient(#250d08,#090606)!important;box-shadow:0 0 16px #eea73875,inset 0 0 15px #5c2b14!important;font:bold clamp(14px,1.3vw,19px) Georgia,serif!important;color:#ffe17c!important}
+#shopBackdrop.shopV2 .v2Close{align-self:start;margin:0!important;font-size:24px;min-width:42px;min-height:42px;border:2px ridge #d5a45b;background:#39120d;color:#ffe4ab;cursor:pointer}
+#shopBackdrop.shopV2 .v2Intro{margin:0 0 10px!important;padding:8px 12px;text-align:center;font:bold clamp(12px,1.3vw,18px) Georgia,serif!important;color:#f9dbac!important;text-shadow:0 2px 3px #000;background:linear-gradient(90deg,transparent,#4e1510 28%,#4e1510 70%,transparent)}
+#shopBackdrop.shopV2 .v2Top{margin:2px 0 10px!important;padding:5px 5px 10px!important;border-bottom:2px solid #b77227!important;display:flex;justify-content:space-between;align-items:center;gap:8px}
+#shopBackdrop.shopV2 .v2Top h3{font:bold clamp(25px,2.5vw,40px) Georgia,serif;color:#ffd879;margin:0;text-shadow:0 0 12px #e65d19}
+#shopBackdrop.shopV2 .v2Back,#shopBackdrop.shopV2 .v2Pager button{font:bold 15px Georgia,serif;color:#ffdb9e;background:linear-gradient(#52210e,#170905);border:2px ridge #d79a3e;border-radius:6px;min-height:41px;padding:7px 12px;cursor:pointer}
+#shopBackdrop.shopV2 .v2ShopShell{grid-template-columns:minmax(170px,16%) minmax(0,1fr) minmax(260px,25%)!important;gap:12px!important;align-items:stretch}
+#shopBackdrop.shopV2 .v2Sidebar{background:linear-gradient(#210c09,#140909)!important;border:3px ridge #d69332!important;border-radius:10px;padding:9px;box-shadow:inset 0 0 25px #000}
+#shopBackdrop.shopV2 .v2Sidebar h3{text-align:center;font-size:20px;color:#ffe0a0;margin:4px 0 12px}
+#shopBackdrop.shopV2 .v2NavItem{font:bold clamp(13px,1.2vw,18px) Georgia,serif!important;min-height:47px;padding:9px 7px!important;text-align:left;color:#ffe6b6;border:2px ridge #a96e29!important;border-radius:6px;background:linear-gradient(#501c10,#190a09)!important;cursor:pointer}
+#shopBackdrop.shopV2 .v2NavItem.isActive,#shopBackdrop.shopV2 .v2NavItem:hover{background:linear-gradient(#b54216,#4e0d08)!important;border-color:#ffcc5d!important;box-shadow:0 0 13px #f48329aa!important}
+#shopBackdrop.shopV2 .v2Tools{display:flex;flex-wrap:nowrap;gap:9px;margin:0 0 12px}
+#shopBackdrop.shopV2 .v2Search{flex:1 1 50%;min-width:100px}
+#shopBackdrop.shopV2 .v2Select{flex:0 1 145px;min-width:87px}
+#shopBackdrop.shopV2 .v2Search,#shopBackdrop.shopV2 .v2Select{font:15px Georgia,serif!important;color:#ffe4b1;border:2px ridge #b98632!important;border-radius:8px;padding:10px;background:#140b0a!important}
+#shopBackdrop.shopV2 .v2Center .v2Items{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important}
+#shopBackdrop.shopV2 .v2Center .v2Item{--tier:#dba24c;--tier-glow:#b05e1c;width:100%;min-width:0;min-height:205px!important;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;gap:3px!important;padding:5px 5px 8px!important;border:2px ridge var(--tier)!important;border-radius:8px!important;background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb,var(--tier-glow),#14070a 65%) 0%,#120a0a 78%)!important;color:#fff0cd;box-shadow:inset 0 0 16px #000,0 4px 10px #000!important;transition:box-shadow .15s,transform .15s!important;cursor:pointer}
+#shopBackdrop.shopV2 .v2Center .v2Item:hover,#shopBackdrop.shopV2 .v2Center .v2Item.selected{transform:translateY(-2px)!important;border-color:#ffe997!important;box-shadow:0 0 14px var(--tier-glow),inset 0 0 13px #000!important}
+#shopBackdrop.shopV2 .v2TierNeparasta{--tier:#438df1!important;--tier-glow:#1755bc!important}
+#shopBackdrop.shopV2 .v2TierReta{--tier:#55d974!important;--tier-glow:#127c38!important}
+#shopBackdrop.shopV2 .v2TierEpiska{--tier:#bb6cfa!important;--tier-glow:#7f2acf!important}
+#shopBackdrop.shopV2 .v2TierLeģendāra{--tier:#ffb032!important;--tier-glow:#b32608!important}
+#shopBackdrop.shopV2 .v2Center .v2ItemLevel{width:calc(100% + 10px);align-self:stretch;margin:-5px -5px 2px!important;padding:5px 1px!important;background:linear-gradient(90deg,#24100a,#633318,#24100a)!important;border-bottom:1px solid var(--tier)!important;font-size:12px!important}
+#shopBackdrop.shopV2 .v2ItemArt{display:grid;place-items:center;width:100%;height:81px;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,var(--tier-glow),transparent 68%)}
+#shopBackdrop.shopV2 .v2ItemArt svg{display:block;height:90%;width:90%;filter:drop-shadow(0 2px 5px var(--tier-glow))}
+#shopBackdrop.shopV2 .v2ItemArt .artEmoji{font-size:54px;filter:drop-shadow(0 0 9px var(--tier-glow))}
+#shopBackdrop.shopV2 .v2Center .v2Item strong{min-height:34px;text-align:center;font:bold clamp(12px,.98vw,16px) Georgia,serif!important;line-height:1.06;color:#fff0c1}
+#shopBackdrop.shopV2 .v2RarityTag{font-size:11px!important;color:var(--tier)!important}
+#shopBackdrop.shopV2 .v2Center .v2Item>span:not(.v2ItemArt):not(.v2ItemLevel){font-size:12px}
+#shopBackdrop.shopV2 .v2Center .v2Item b{font-size:16px!important;color:#ffe05c;margin-top:auto;text-shadow:0 0 8px #b50}
+#shopBackdrop.shopV2 .v2Details{padding:13px!important;min-height:470px!important;border:3px ridge #e6a13c!important;border-radius:9px!important;background:linear-gradient(#32120be8,#170b09ea),url('./drakmor-shop-new.png') center/cover!important;box-shadow:inset 0 0 26px #000!important}
+#shopBackdrop.shopV2 .v2Details h3{font-size:clamp(19px,1.7vw,29px);color:#ffdf76;text-align:center}
+#shopBackdrop.shopV2 .v2Details .v2DetailArt{display:grid;place-items:center;height:160px;margin:4px 0 9px;border:2px ridge #e0a03e;border-radius:8px;background:radial-gradient(ellipse at center,#76331c, #160a09 72%);box-shadow:inset 0 0 30px #000}
+#shopBackdrop.shopV2 .v2DetailArt svg{width:80%;height:90%;filter:drop-shadow(0 0 15px #fe9d2b)}
+#shopBackdrop.shopV2 .v2DetailArt .artEmoji{font-size:90px}
+#shopBackdrop.shopV2 .v2Details p{margin:8px 0;padding:5px 3px;border-bottom:1px solid #75421d}
+#shopBackdrop.shopV2 .v2Details .v2DetailPlaceholder{margin:18px 0;border:1px dashed #a57630;background:#271108a8;padding:24px 12px;color:#e5c58f;line-height:1.5;text-align:center}
+#shopBackdrop.shopV2 .v2Buy,#shopBackdrop.shopV2 .v2Equip{display:block;width:100%;min-height:46px;margin-top:12px;border:2px ridge #e8b756;border-radius:8px;background:linear-gradient(#299c2e,#0e4b14);color:#fff0ba;font:bold 20px Georgia,serif;cursor:pointer}
+#shopBackdrop.shopV2 .v2Buy:disabled,#shopBackdrop.shopV2 .v2Equip:disabled{opacity:.5;cursor:not-allowed}
+#shopBackdrop.shopV2 .v2Pager{display:flex;gap:10px;justify-content:center;align-items:center;margin:14px 0 4px;font:bold 15px Georgia,serif;color:#ffdfa1}
+#shopBackdrop.shopV2 .v2FeatureNav{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin-top:15px;padding-top:13px;border-top:2px ridge #c77b32}
+#shopBackdrop.shopV2 .v2FeatureNav button{min-height:66px;padding:6px 4px;border:2px ridge #e0a341;border-radius:9px;background:linear-gradient(#511609,#1a090a);color:#ffe4ae;font:bold clamp(11px,1.1vw,17px) Georgia,serif;cursor:pointer}
+#shopBackdrop.shopV2 .v2FeatureNav button span{display:block;font-size:27px;margin-bottom:2px}
+#shopBackdrop.shopV2 .v2FeatureNav button:disabled{opacity:.49;cursor:not-allowed;filter:grayscale(.6)}
+#shopBackdrop.shopV2 button:focus-visible{outline:2px solid #ffefbd!important;outline-offset:2px}
+@media(max-width:1250px){#shopBackdrop.shopV2 .v2ShopShell{grid-template-columns:165px minmax(0,1fr) 255px!important}#shopBackdrop.shopV2 .v2Center .v2Items{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:900px){#shopBackdrop.shopV2 .v2Head{grid-template-columns:135px 1fr 160px 38px;min-height:100px}#shopBackdrop.shopV2 .v2ShopShell{grid-template-columns:minmax(115px,23%) minmax(0,1fr)!important}#shopBackdrop.shopV2 .v2ShopShell .v2Details{grid-column:1/-1;min-height:200px!important}#shopBackdrop.shopV2 .v2Center .v2Items{grid-template-columns:repeat(3,minmax(0,1fr))!important}#shopBackdrop.shopV2 .v2FeatureNav{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:580px){#shopBackdrop.shopV2{padding:0!important}#shopBackdrop.shopV2 #drakmorShopV2:not(.v2IllustratedCategories){width:100vw!important;max-height:100dvh;padding:8px!important;border-radius:0!important}#shopBackdrop.shopV2 .v2Head{grid-template-columns:70px minmax(0,1fr) 38px;gap:5px;min-height:90px}#shopBackdrop.shopV2 .v2Merchant{font-size:0}#shopBackdrop.shopV2 .v2Merchant::before{font-size:42px}#shopBackdrop.shopV2 .v2Merchant::after{font-size:10px}#shopBackdrop.shopV2 .v2Head h2{font-size:25px!important}#shopBackdrop.shopV2 .v2Wallet{grid-column:1/-1;grid-row:2;padding:7px!important}#shopBackdrop.shopV2 .v2Close{grid-column:3;grid-row:1}#shopBackdrop.shopV2 .v2ShopShell{grid-template-columns:1fr!important}#shopBackdrop.shopV2 .v2Sidebar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}#shopBackdrop.shopV2 .v2Sidebar h3{grid-column:1/-1}#shopBackdrop.shopV2 .v2NavItem{font-size:12px!important;min-height:37px;padding:6px!important}#shopBackdrop.shopV2 .v2Center .v2Items{grid-template-columns:repeat(2,minmax(0,1fr))!important}#shopBackdrop.shopV2 .v2Tools{flex-wrap:wrap}#shopBackdrop.shopV2 .v2Search{flex-basis:100%}#shopBackdrop.shopV2 .v2Select{flex:1 1 42%}#shopBackdrop.shopV2 .v2FeatureNav{grid-template-columns:repeat(2,minmax(0,1fr))}#shopBackdrop.shopV2 .v2Top h3{font-size:23px}}
+@media(prefers-reduced-motion:reduce){#shopBackdrop.shopV2 .v2Item{transition:none!important}}
