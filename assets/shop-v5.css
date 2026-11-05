@@ -32,3 +32,9 @@
 .dm5-buy{box-shadow:0 0 13px #13611a,inset 0 0 9px #70e46b}
 @media(max-width:1000px){.dm5-header{min-height:150px}.dm5-item{min-height:178px}}
 @media(max-width:620px){.dm5-shop{padding:7px}.dm5-header{padding:10px;min-height:130px;gap:5px}.dm5-smith{padding:6px;font-size:13px}.dm5-smith small{font-size:11px}.dm5-wallet{padding:6px;font-size:12px;white-space:normal}.dm5-title h1{font-size:26px}.dm5-title h2{font-size:20px}.dm5-item{min-height:165px}.dm5-item-art{min-height:80px}.dm5-weapon-image{width:75px;height:75px}.dm5-layout{gap:8px}.dm5-categories,.dm5-middle,.dm5-detail{padding:8px}.dm5-category:hover:not(:disabled){transform:none}}
+
+/* Selection is opt-in: never emphasize an unclicked catalog item. */
+.dm5-shop .dm5-item:not(.selected){box-shadow:inset 0 0 12px #000,0 3px 8px #000!important;border-color:#ae762c!important}
+.dm5-shop .dm5-item.selected{border-color:#ffeb89!important;box-shadow:0 0 0 2px #fff0a1,0 0 22px #ff6500,inset 0 0 18px #a7410c!important;background:radial-gradient(ellipse,#6c280d,#1a0a0b 78%)!important}
+.dm5-shop .dm5-item.selected .dm5-weapon-image{filter:drop-shadow(0 0 12px #ff6a00) drop-shadow(0 0 4px #ffe49d)}
+.dm5-shop .dm5-select-hint{min-height:190px;display:grid;place-items:center;text-align:center;border:1px dashed #795024;color:#e6c28b;padding:20px;font-style:italic}
