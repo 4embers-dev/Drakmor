@@ -10,3 +10,25 @@
 #shopBackdrop.shopV5>.illustratedShop,
 #shopBackdrop.shopV5>#drakmorShopV2{display:none!important}
 #shopBackdrop.shopV5 #shopV5Mount{display:block;width:min(1600px,98vw);max-height:94dvh;overflow:auto;margin:auto;flex:none}
+
+/* 8. solis — illustrated forge styling. No dependency on emoji glyph support. */
+.dm5-shop{position:relative;overflow:hidden;background:radial-gradient(ellipse at 47% -20%,#753515 0%,#28120e 36%,#0c080b 78%);border:4px double #f3bd62;box-shadow:0 0 0 2px #38200d,inset 0 0 0 3px #4e2b14,inset 0 0 55px #000,0 20px 60px #000}
+.dm5-shop:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.15;background:repeating-linear-gradient(90deg,transparent 0 80px,#c89a53 81px,transparent 82px),radial-gradient(circle at 50% 0,#ffb64d,transparent 55%)}
+.dm5-shop>*,.dm5-shop .dm5-layout{position:relative}
+.dm5-header{min-height:185px;background:linear-gradient(90deg,#1b0d0ac9,#1b0d0a3b,#160b0bd6),url('../drakmor-shop-categories.png') center 42%/cover;border:2px ridge #bd7a2d;border-radius:9px;padding:20px;margin-bottom:14px;box-shadow:inset 0 0 55px #080405}
+.dm5-smith{align-self:end;padding:14px;background:#160c0ac9;border:1px solid #b78038;border-radius:8px;text-shadow:1px 2px 4px #000}
+.dm5-title{padding:10px;background:radial-gradient(ellipse,#160907eb,#180b07a8 65%,transparent 80%)}
+.dm5-title h1{letter-spacing:.05em;color:#ffe29b}.dm5-title h2{color:#ffbf64}
+.dm5-wallet{padding:12px;border:2px ridge #c5913d;background:#170b0bdc;border-radius:8px;text-align:center;white-space:nowrap}
+.dm5-layout{gap:14px}.dm5-categories,.dm5-middle,.dm5-detail{border:3px double #ad7638;background:linear-gradient(145deg,#32160eea,#100a0be8 75%);box-shadow:inset 0 0 0 2px #100909,inset 0 0 28px #000,0 5px 20px #000}
+.dm5-category{transition:filter .16s,transform .16s}.dm5-category:hover:not(:disabled){transform:translateX(3px)}
+.dm5-item{position:relative;overflow:hidden;min-height:195px;padding:8px 5px!important;background:linear-gradient(145deg,#43200fe8,#120b0ce8)!important;box-shadow:inset 0 0 12px #000,0 3px 8px #000;transition:transform .15s,box-shadow .15s}
+.dm5-item:hover:not(:disabled){transform:translateY(-3px)}
+.dm5-item-art{width:100%;min-height:91px;filter:none}
+.dm5-weapon-image{width:90px;height:90px;max-width:100%;object-fit:contain;filter:drop-shadow(0 0 8px #c67b34)}
+.dm5-detail-art{min-height:190px;overflow:hidden}
+.dm5-detail-art .dm5-weapon-image{width:190px;height:190px;filter:drop-shadow(0 0 16px #e79d42)}
+.dm5-feature{background:linear-gradient(150deg,#583016,#1a0c0b)!important;box-shadow:inset 0 0 12px #000}
+.dm5-buy{box-shadow:0 0 13px #13611a,inset 0 0 9px #70e46b}
+@media(max-width:1000px){.dm5-header{min-height:150px}.dm5-item{min-height:178px}}
+@media(max-width:620px){.dm5-shop{padding:7px}.dm5-header{padding:10px;min-height:130px;gap:5px}.dm5-smith{padding:6px;font-size:13px}.dm5-smith small{font-size:11px}.dm5-wallet{padding:6px;font-size:12px;white-space:normal}.dm5-title h1{font-size:26px}.dm5-title h2{font-size:20px}.dm5-item{min-height:165px}.dm5-item-art{min-height:80px}.dm5-weapon-image{width:75px;height:75px}.dm5-layout{gap:8px}.dm5-categories,.dm5-middle,.dm5-detail{padding:8px}.dm5-category:hover:not(:disabled){transform:none}}
