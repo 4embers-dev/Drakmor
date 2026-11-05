@@ -38,3 +38,24 @@
 .dm5-shop .dm5-item.selected{border-color:#ffeb89!important;box-shadow:0 0 0 2px #fff0a1,0 0 22px #ff6500,inset 0 0 18px #a7410c!important;background:radial-gradient(ellipse,#6c280d,#1a0a0b 78%)!important}
 .dm5-shop .dm5-item.selected .dm5-weapon-image{filter:drop-shadow(0 0 12px #ff6a00) drop-shadow(0 0 4px #ffe49d)}
 .dm5-shop .dm5-select-hint{min-height:190px;display:grid;place-items:center;text-align:center;border:1px dashed #795024;color:#e6c28b;padding:20px;font-style:italic}
+
+/* Reference-driven three-panel layout: illustrated smith, compact filters, ornate panels. */
+.dm5-shop{border-radius:4px;background:linear-gradient(#0e0a0cda,#0c080adf),url('../drakmor-shop-categories.png') center/cover fixed}
+.dm5-header{position:relative;isolation:isolate;grid-template-columns:minmax(220px,1.05fr) minmax(300px,2.3fr) minmax(200px,.95fr) auto;min-height:180px;margin:-10px -10px 12px;padding:15px 20px 14px 8px;background:linear-gradient(90deg,#150b0b44,#180a0a55 55%,#140c0e60),url('./shop-v5-forge.svg') left center/auto 100% no-repeat,url('../drakmor-shop-categories.png') right center/auto 130% no-repeat;border-width:0 0 3px;border-radius:0;box-shadow:inset 0 -20px 25px #070405}
+.dm5-smith{align-self:end;justify-self:start;margin-left:10px;padding:6px 13px;max-width:260px;background:linear-gradient(#420b07ed,#180908e8);border:2px ridge #eeb852;box-shadow:0 0 10px #f47919;text-shadow:1px 2px 3px #000}
+.dm5-title{align-self:start;background:radial-gradient(ellipse,#1b0809e8,#220a0bbd 60%,transparent 78%);border-bottom:2px solid #b85722}
+.dm5-title h1{font-size:clamp(30px,4vw,58px);line-height:1.08}.dm5-title h2{font-size:clamp(20px,2.6vw,37px)}
+.dm5-wallet{align-self:center;background:linear-gradient(#29140eea,#0e0809f0);font-size:clamp(13px,1.2vw,19px)}
+.dm5-layout{grid-template-columns:minmax(185px,.95fr) minmax(450px,3.05fr) minmax(280px,2fr);gap:10px;margin:10px 0}
+.dm5-categories,.dm5-middle,.dm5-detail{padding:10px;border:3px ridge #f4a941;border-radius:3px;background:linear-gradient(150deg,#25100ce8,#090809f2)}
+.dm5-categories h3,.dm5-detail h3{margin:-8px -8px 10px;padding:8px;background:linear-gradient(#5a0a08,#210605);border:2px ridge #e79b38;font-size:clamp(17px,1.5vw,24px);text-shadow:0 0 6px #f07720}
+.dm5-category{font-size:clamp(13px,1.2vw,19px);padding:8px 12px!important;border-radius:2px!important}
+.dm5-controls{gap:6px;flex-wrap:nowrap}
+.dm5-search{flex:1;min-width:90px;padding:8px}.dm5-order{max-width:none;width:auto;min-width:0;flex:0 1 auto;padding:8px 5px;font-size:clamp(11px,.95vw,15px)!important}
+.dm5-cards{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.dm5-item{min-height:172px}.dm5-item-art{min-height:77px}.dm5-weapon-image{width:76px;height:76px}
+.dm5-detail-art{min-height:170px}.dm5-detail-art .dm5-weapon-image{width:165px;height:165px}
+.dm5-footer{gap:9px}.dm5-feature{border-radius:2px!important;border:3px ridge #e6a246!important;background:linear-gradient(160deg,#64250f,#170909)!important}
+@media(max-width:1250px){.dm5-layout{grid-template-columns:175px minmax(0,1fr)}.dm5-detail{grid-column:1/-1}.dm5-cards{grid-template-columns:repeat(5,minmax(0,1fr))}.dm5-header{grid-template-columns:1fr 1.7fr 1fr auto}.dm5-controls{flex-wrap:wrap}.dm5-order{flex:1 1 100px}}
+@media(max-width:750px){.dm5-layout{grid-template-columns:1fr}.dm5-detail{grid-column:auto}.dm5-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.dm5-header{grid-template-columns:1fr auto;min-height:145px;background-size:auto 100%,auto 110%}.dm5-title{grid-column:1/-1;grid-row:1}.dm5-smith{grid-row:2;margin:0;font-size:12px}.dm5-wallet{grid-row:2;font-size:12px}.dm5-close{position:absolute;right:4px;top:4px}.dm5-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.dm5-categories h3{grid-column:1/-1}.dm5-footer{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.dm5-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.dm5-header{min-height:135px}.dm5-smith small{display:none}}
