@@ -43,8 +43,11 @@ function create({mount,db,onClose,onInventory,catalog=[]}={}){
  }
  async function transact(rpc,item){
   if(busy||!state||!item?.purchasable)return;
+  const isOwned=Array.isArray(state.owned)&&state.owned.includes(item.name);
+  if(rpc==='drakmor_buy_weapon'&&(isOwned||Number(state.gold)<Number(item.price)||Number(state.level)<Number(item.level)))return;
+  if(rpc==='drakmor_equip_weapon'&&(!isOwned||state.equipped===item.name))return;
   busy=true;render();
-  try{const {data,error}=await db.rpc(rpc,{weapon_name:item.name});if(error)throw error;if(!data?.ok)throw Error(data?.message||'Darbība neizdevās');const res=await db.rpc('drakmor_shop_state');if(res.error)throw res.error;state=res.data;notice='✓ Darbība veiksmīga!'}
+  try{const {data,error}=await db.rpc(rpc,{weapon_name:item.name});if(error)throw error;if(!data?.ok)throw Error(data?.message||'Darbība neizdevās');const res=await db.rpc('drakmor_shop_state');if(res.error)throw res.error;if(destroyed)return;state=res.data;notice='✓ Darbība veiksmīga!'}
   catch(e){notice='Kļūda: '+(e?.message||'Nezināma kļūda')}
   finally{busy=false;render()}
  }
