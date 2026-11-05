@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="lv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drakmor 5.0 — veikala drošais priekšskatījums</title>
+<link rel="stylesheet" href="../assets/shop-v5.css">
+<style>body{margin:0;padding:16px;background:#08090c;color:#ffe3ab;font-family:Georgia,serif}.preview-banner{max-width:1500px;margin:0 auto 14px;border:1px solid #ca9a48;background:#301b0e;padding:12px;border-radius:8px}.preview-banner strong{color:#ffd36b}#shop{max-width:1600px;margin:auto}</style>
+</head><body><div class="preview-banner"><strong>TESTA REŽĪMS</strong> — šeit izmantots simulēts konts. Pirkumi un ekipējums netiek saglabāti Supabase. <button id="reset">Atjaunot testa datus</button></div><div id="shop"></div>
+<script src="../assets/shop-v5.js"></script>
+<script>
+(()=>{
+'use strict';
+const products=[
+['Koka zobens',1,1,50,'⚔️'],['Dzelzs zobens',2,2,80,'⚔️'],['Karavīra zobens',3,4,120,'🗡️'],
+['Stiprais zobens',4,6,170,'⚔️'],['Tērauda zobens',5,8,250,'⚔️'],['Kaujas cirvis',6,10,320,'🪓'],
+['Divroču zobens',7,12,400,'⚔️'],['Karaliskais asmens',8,14,500,'🗡️'],['Sarga cirvis',9,16,620,'🪓'],
+['Elites zobens',10,18,750,'⚔️'],['Ēnu duncis',11,20,900,'🗡️'],['Vilka asmens',12,22,1100,'⚔️'],
+['Kara kapātājs',13,24,1350,'🪓'],['Drakona zobens',14,26,1600,'⚔️'],['Sātana cirvis',15,28,1900,'🪓'],
+['Gaismas asmens',16,30,2300,'⚔️'],['Ledus zobens',17,32,2800,'⚔️'],['Vētras cirvis',18,34,3400,'🪓'],
+['Leģionāra zobens',19,36,4000,'⚔️'],['Drakmora asmens',20,40,5000,'⚔️']
+].map(([name,level,bonus,price,icon])=>({category:'Ieroči',name,level,bonus,price,icon,purchasable:true}));
+let gold=12450,level=20,owned=[],equipped=null,app;
+const db={rpc:async(name,args={})=>{
+ if(name==='drakmor_shop_catalog')return {data:products.map(x=>({...x}))};
+ if(name==='drakmor_shop_state')return {data:{gold,level,owned:[...owned],equipped}};
+ const item=products.find(x=>x.name===args.weapon_name);
+ if(!item)return {data:{ok:false,message:'Manta nav atrasta.'}};
+ if(name==='drakmor_buy_weapon'){
+  if(owned.includes(item.name))return {data:{ok:false,message:'Manta jau pieder.'}};
+  if(level<item.level)return {data:{ok:false,message:'Nepietiekams līmenis.'}};
+  if(gold<item.price)return {data:{ok:false,message:'Nepietiek zelta.'}};
+  gold-=item.price;owned.push(item.name);return {data:{ok:true}};
+ }
+ if(name==='drakmor_equip_weapon'){
+  if(!owned.includes(item.name))return {data:{ok:false,message:'Manta nav inventārā.'}};
+  equipped=item.name;return {data:{ok:true}};
+ }
+ return {error:{message:'Nezināma funkcija'}};
+}};
+function start(){if(app)app.destroy();app=window.DrakmorShopV5.create({mount:document.getElementById('shop'),db,onClose:()=>{app.destroy();app=null;document.getElementById('shop').textContent='Veikals aizvērts. Nospied “Atjaunot testa datus”, lai atvērtu vēlreiz.'}})}
+document.getElementById('reset').onclick=()=>{gold=12450;owned=[];equipped=null;start()};start();
+})();
+</script></body></html>
