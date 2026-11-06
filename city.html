@@ -805,7 +805,7 @@ function v2Art(item,detail=false){
  svg.innerHTML='<circle cx="70" cy="59" r="45" fill="none" stroke="var(--blade)" stroke-width="1" opacity=".3"/>' + ({axe,hammer,spear,dagger,sword}[kind]);
  wrap.append(svg);return wrap;
 }
-function v2Wallet(){const gold=shopState?.gold==null?'—':shopState.gold;const e=$('v2Wallet');if(e)e.textContent='🪙 Tavs zelts: '+gold+' zelts';const art=$('v2ArtGold');if(art)art.textContent=gold+' zelts'}
+function v2Wallet(){const gold=shopState?.gold==null?'—':shopState.gold;const e=$('v2Wallet');if(e)e.textContent=e.classList.contains('v2SceneGold')?Number(gold).toLocaleString('lv-LV'):'🪙 Tavs zelts: '+gold+' zelts';const art=$('v2ArtGold');if(art)art.textContent=gold+' zelts'}
 
 function v2IllustratedWeaponView(){
  const root=v2ShopRoot();root.replaceChildren();root.classList.remove('v2IllustratedCategories');
