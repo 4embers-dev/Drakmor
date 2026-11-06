@@ -664,6 +664,20 @@
 #battleBackdrop .tacticalArtwork .tacticalHeroHp{left:14.4%!important;top:16.1%!important;width:10.7%!important;height:4.4%!important}
 #battleBackdrop .tacticalArtwork .tacticalGoblinHp{left:87.1%!important;top:16.1%!important;width:9.5%!important;height:4.4%!important}
 #battleBackdrop .tacticalArtwork .tacticalHeroHp,#battleBackdrop .tacticalArtwork .tacticalGoblinHp{background:#810d11!important;box-shadow:none!important;font-size:clamp(10px,1.5vw,24px)!important}
+</style><style>
+/* Widescreen approved battle art (1792x896): reposition hit zones without altering game rules. */
+#battleBackdrop .battleApproved .tacticalArtwork{background-image:url('./drakmor-battle-wide.png')!important;aspect-ratio:2/1!important;width:min(100%,calc(80dvh * 2))!important}
+#battleBackdrop .combatControlsImage .tacticalChoice{height:5.2%!important;width:19.2%!important}
+#battleBackdrop .combatControlsImage .tacticalAttackChoice{left:28.3%!important}
+#battleBackdrop .combatControlsImage .tacticalBlockChoice{left:51.0%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="0"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="0"]{top:41.6%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="1"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="1"]{top:46.9%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="2"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="2"]{top:52.2%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="3"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="3"]{top:57.5%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="4"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="4"]{top:62.8%!important}
+#battleBackdrop .tacticalArtwork #battleStrike{left:35.7%!important;top:73.8%!important;width:27.3%!important;height:11.2%!important}
+#battleBackdrop .tacticalArtwork .tacticalHeroHp{left:17.4%!important;top:24.3%!important;width:7.3%!important;height:3.1%!important;font-size:clamp(9px,1.1vw,20px)!important}
+#battleBackdrop .tacticalArtwork .tacticalGoblinHp{left:83.2%!important;top:24.3%!important;width:6.1%!important;height:3.1%!important;font-size:clamp(9px,1.1vw,20px)!important}
 </style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
