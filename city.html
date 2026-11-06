@@ -638,7 +638,33 @@
 @media(max-width:1350px){#drakmorShopV2:not(.v2IllustratedCategories) .v2ShopShell{grid-template-columns:165px minmax(0,1fr) 260px}#drakmorShopV2:not(.v2IllustratedCategories) .v2Center .v2Items{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:850px){#drakmorShopV2:not(.v2IllustratedCategories) .v2ShopShell{grid-template-columns:145px minmax(0,1fr)}#drakmorShopV2:not(.v2IllustratedCategories) .v2ShopShell .v2Details{grid-column:1/-1;min-height:150px}}
 @media(max-width:540px){#drakmorShopV2:not(.v2IllustratedCategories) .v2ShopShell{grid-template-columns:1fr}#drakmorShopV2:not(.v2IllustratedCategories) .v2ShopShell .v2Details{grid-column:1}#drakmorShopV2:not(.v2IllustratedCategories) .v2Center .v2Items{grid-template-columns:repeat(2,minmax(0,1fr))}}
-</style><link rel="stylesheet" href="./assets/shop-5-illustrated.css"></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
+</style><link rel="stylesheet" href="./assets/shop-5-illustrated.css"><style>
+/* Drakmor 5.0 — exact user-approved battle illustration, one artwork only. */
+#battleBackdrop .battleApproved .tacticalArtwork{background-image:url('./drakmor-battle-v5.png')!important;aspect-ratio:1848/800!important;width:min(100%,calc(74dvh * 1848 / 800))!important;position:relative!important;overflow:hidden!important}
+#battleBackdrop .tacticalArtwork::before,#battleBackdrop .tacticalArtwork::after{display:none!important;content:none!important}
+#battleBackdrop .tacticalArtwork .battleEmptyGear{display:none!important}
+#battleBackdrop .tacticalArtwork .combatControlsImage{position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;background:none!important;z-index:8!important;pointer-events:none!important}
+#battleBackdrop .combatControlsImage .tacticalHit,#battleBackdrop .combatControlsImage .tacticalBlocks{position:absolute!important;inset:0!important;pointer-events:none!important}
+#battleBackdrop .combatControlsImage .tacticalChoice{position:absolute!important;pointer-events:auto!important;height:6.6%!important;width:20.5%!important;z-index:9!important;border-radius:6px!important;box-shadow:none!important;background:transparent!important;border:0!important}
+#battleBackdrop .combatControlsImage .tacticalAttackChoice{left:27.8%!important}
+#battleBackdrop .combatControlsImage .tacticalBlockChoice{left:51.5%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="0"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="0"]{top:40.3%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="1"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="1"]{top:47.2%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="2"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="2"]{top:54.2%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="3"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="3"]{top:61.1%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[data-hit="4"],#battleBackdrop .combatControlsImage .tacticalChoice[data-block="4"]{top:68%!important}
+#battleBackdrop .combatControlsImage .tacticalChoice::before,#battleBackdrop .combatControlsImage .tacticalChoice::after{content:none!important;display:none!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[aria-checked="true"]::before{content:'●'!important;display:grid!important;place-items:center!important;position:absolute!important;left:4%!important;top:12%!important;width:13%!important;height:75%!important;color:#ffe27a!important;font-size:clamp(11px,1.5vw,22px)!important;text-shadow:0 0 8px #ff6600!important}
+#battleBackdrop .combatControlsImage .tacticalChoice[aria-pressed="true"]::before{content:'✓'!important;display:grid!important;place-items:center!important;position:absolute!important;left:4%!important;top:12%!important;width:13%!important;height:75%!important;color:#ffe27a!important;font:bold clamp(11px,1.5vw,22px) Arial!important;text-shadow:0 0 8px #ff6600!important}
+#battleBackdrop .combatControlsImage .tacticalChoice:hover,#battleBackdrop .combatControlsImage .tacticalChoice:focus-visible{outline:2px solid #ffd568!important;outline-offset:-3px!important}
+#battleBackdrop .tacticalArtwork #battleStrike{position:absolute!important;left:35.1%!important;top:82.5%!important;width:29.9%!important;height:14.3%!important;z-index:12!important;background:transparent!important;border:0!important;border-radius:10px!important;box-shadow:none!important;color:transparent!important;font-size:0!important;display:block!important;text-shadow:none!important}
+#battleBackdrop .tacticalArtwork #battleStrike::before,#battleBackdrop .tacticalArtwork #battleStrike::after{display:none!important;content:none!important}
+#battleBackdrop .tacticalArtwork #battleStrike:hover:not(:disabled){outline:3px solid #ffe3a1!important;outline-offset:-4px!important;background:#ffc34a12!important}
+#battleBackdrop .tacticalArtwork #battleStrike:disabled{opacity:1!important;filter:none!important}
+#battleBackdrop .tacticalArtwork .tacticalHeroHp{left:14.4%!important;top:16.1%!important;width:10.7%!important;height:4.4%!important}
+#battleBackdrop .tacticalArtwork .tacticalGoblinHp{left:87.1%!important;top:16.1%!important;width:9.5%!important;height:4.4%!important}
+#battleBackdrop .tacticalArtwork .tacticalHeroHp,#battleBackdrop .tacticalArtwork .tacticalGoblinHp{background:#810d11!important;box-shadow:none!important;font-size:clamp(10px,1.5vw,24px)!important}
+</style></head><body><div class="wrap"><main class="stage" aria-label="Drakmor pilsēta"><span class="heroName" id="heroName"></span><span class="heroElement" id="heroElement"></span><span class="heroLevel">1. līmenis</span>
 <button class="hotspot" style="left:0.5%;top:1%;width:23%;height:20%" data-screen="Profils" aria-label="Profils"></button>
 <button class="hotspot" style="left:0.6%;top:22%;width:16%;height:31%" data-screen="Dienas uzdevumi" aria-label="Dienas uzdevumi"></button>
 <button class="hotspot" style="left:22%;top:31%;width:15%;height:10%" data-screen="Arēna" aria-label="Arēna"></button>
